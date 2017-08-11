@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="技术分享," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="逼死强迫症之代码规范（性能优化）  var关键字变量命名（利用$符号带头区分jQuery对象与HTML DOM对象）  123var a = 0,    $loading = $(&apos;#loading&apos;),    $body = $(&apos;body&apos;);   多次操作DOM对象缓存为变量  1234567891011//不好的写法$(&apos;#loading&apos;).html(&quot;loading...&quot;);$(&apos;#">
+<meta name="keywords" content="技术分享">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端技术分享讲稿（注重细节克服瓶颈）">
+<meta property="og:url" content="http://yoursite.com/2016/11/24/2016.11.24前端技术分享讲稿/index.html">
+<meta property="og:site_name" content="耿耿星河欲曙天">
+<meta property="og:description" content="逼死强迫症之代码规范（性能优化）  var关键字变量命名（利用$符号带头区分jQuery对象与HTML DOM对象）  123var a = 0,    $loading = $(&apos;#loading&apos;),    $body = $(&apos;body&apos;);   多次操作DOM对象缓存为变量  1234567891011//不好的写法$(&apos;#loading&apos;).html(&quot;loading...&quot;);$(&apos;#">
+<meta property="og:updated_time" content="2017-08-11T09:07:39.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="前端技术分享讲稿（注重细节克服瓶颈）">
+<meta name="twitter:description" content="逼死强迫症之代码规范（性能优化）  var关键字变量命名（利用$符号带头区分jQuery对象与HTML DOM对象）  123var a = 0,    $loading = $(&apos;#loading&apos;),    $body = $(&apos;body&apos;);   多次操作DOM对象缓存为变量  1234567891011//不好的写法$(&apos;#loading&apos;).html(&quot;loading...&quot;);$(&apos;#">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: false,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/11/24/2016.11.24前端技术分享讲稿/"/>
+
+
+
+
+
+  <title>前端技术分享讲稿（注重细节克服瓶颈） | 耿耿星河欲曙天</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">耿耿星河欲曙天</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">耿耿星河欲曙天</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/11/24/2016.11.24前端技术分享讲稿/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhenghangjie">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="耿耿星河欲曙天">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">前端技术分享讲稿（注重细节克服瓶颈）</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-11-24T11:20:38+08:00">
+                2016-11-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="逼死强迫症之代码规范（性能优化）"><a href="#逼死强迫症之代码规范（性能优化）" class="headerlink" title="逼死强迫症之代码规范（性能优化）"></a>逼死强迫症之代码规范（性能优化）</h3><blockquote>
+<p> <strong>var关键字变量命名（利用$符号带头区分jQuery对象与HTML DOM对象）</strong></p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a = <span class="number">0</span>,</div><div class="line">    $loading = $(<span class="string">'#loading'</span>),</div><div class="line">    $body = $(<span class="string">'body'</span>);</div></pre></td></tr></table></figure>
+<blockquote>
+<p> <strong>多次操作DOM对象缓存为变量</strong></p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//不好的写法</span></div><div class="line">$(<span class="string">'#loading'</span>).html(<span class="string">"loading..."</span>);</div><div class="line">$(<span class="string">'#loading'</span>).fadeIn();</div><div class="line"></div><div class="line"><span class="comment">//提升性能的写法</span></div><div class="line"><span class="keyword">var</span> $loading = $(<span class="string">'#loading'</span>);</div><div class="line">$loading.html(<span class="string">"loading..."</span>);</div><div class="line">$loading.fadeIn();</div><div class="line"></div><div class="line"><span class="comment">//再或者是</span></div><div class="line">$loading.html(<span class="string">"loading..."</span>).fadeIn();	<span class="comment">//链式</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>逻辑判断表达式</strong></p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span>(!$a) &#123;</div><div class="line">    $a = $(<span class="string">'#a'</span>);</div><div class="line">&#125;</div><div class="line"><span class="comment">//高性能 + 精简</span></div><div class="line">$a = $a || $(<span class="string">'#a'</span>);</div></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>jQuery选择器</strong></p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//老生常谈</span></div><div class="line"><span class="comment">//不要使用class选择器</span></div><div class="line"><span class="comment">//不要使用class选择器</span></div><div class="line"><span class="comment">//不要使用class选择器(重要的事情说三遍)</span></div><div class="line"></div><div class="line"><span class="keyword">var</span> a = $(<span class="string">"span#a"</span>);</div><div class="line"><span class="keyword">var</span> b = $(<span class="string">"#a #b"</span>); <span class="comment">//性能非常非常的差，而且没有必要(会遍历前一个节点)</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>慎重操作DOM</strong></p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//一次性的DOM渲染</span></div><div class="line"><span class="keyword">var</span> list = <span class="string">'&lt;ul id="list"&gt;'</span>;</div><div class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">1</span>; i &lt; <span class="number">100</span>; i++) &#123;</div><div class="line">	list += <span class="string">'&lt;li&gt;'</span> + i + <span class="string">'&lt;/li&gt;'</span>;</div><div class="line">&#125;</div><div class="line">list += <span class="string">'&lt;/ul&gt;'</span>;</div><div class="line">$(<span class="string">'body'</span>).append(list);</div><div class="line"></div><div class="line"><span class="comment">// 多次重复的DOM渲染(不要这样写！)</span></div><div class="line">$(<span class="string">'#header'</span>).append(<span class="string">'&lt;ul id="list"&gt;&lt;/ul&gt;'</span>);</div><div class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">1</span>; i &lt; <span class="number">100</span>; i++) &#123;</div><div class="line">	$(<span class="string">'#list'</span>).append(<span class="string">'&lt;li&gt;'</span> + i + <span class="string">'&lt;/li&gt;'</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>慎重使用全局变量，少用attribute存数据，data()方法附加数据（某前端live讲到数据存取性能时候提到，但是并没有找到具体性能指标）</strong></p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//项目中多数使用attr存取数据</span></div><div class="line">&lt;li data-id=<span class="string">"877"</span> value=<span class="string">"101172"</span> retype=<span class="string">"pub"</span>&gt;&lt;/li&gt;</div><div class="line"><span class="comment">//采用jQuery的内部函数data()来存储状态</span></div><div class="line">$(<span class="string">'#a'</span>).data(<span class="string">'key'</span>, <span class="string">'value'</span>); <span class="comment">//存储</span></div><div class="line">$(<span class="string">'#a'</span>).data(<span class="string">'key'</span>); <span class="comment">//调用</span></div></pre></td></tr></table></figure>
+<h3 id="各种兼容坑坑坑（项目经验）"><a href="#各种兼容坑坑坑（项目经验）" class="headerlink" title="各种兼容坑坑坑（项目经验）"></a>各种兼容坑坑坑（项目经验）</h3><blockquote>
+<p><strong>神奇的safari兼容</strong></p>
+</blockquote>
+<p><strong>safari的new Data()只能识别”xxxx/xx/xx”，不能识别”xxxx-xx-xx”</strong></p>
+<blockquote>
+<p><strong>神奇的获取窗口位置兼容写法</strong></p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> leftX = <span class="keyword">typeof</span> <span class="built_in">window</span>.screenLeft == <span class="string">'number'</span> ? <span class="built_in">window</span>.screenLeft : <span class="built_in">window</span>.screenX;</div><div class="line">ver topY = <span class="keyword">typeof</span> <span class="built_in">window</span>.screenTop == <span class="string">'number'</span> ? <span class="built_in">window</span>.screenTop : <span class="built_in">window</span>.screenY;</div></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>神奇的Firefox兼容</strong></p>
+</blockquote>
+<p><strong>window.event不能用！而且没有removeNode方法，只能使用node.parentNode.removeChild(node)</strong></p>
+<p>操作目录树的时候被坑过。</p>
+<blockquote>
+<p><strong>迷之手机端video对象（iOS兼容）</strong></p>
+</blockquote>
+<p><strong>之前iOS操作video对象（设置display:none时不会隐藏弹出的播放窗口，只会隐藏页面上的video节点），但是目前用户反馈弹出的播放窗口也会隐藏了！（还未找到有人出现相同问题）</strong></p>
+<h3 id="题外话"><a href="#题外话" class="headerlink" title="题外话"></a>题外话</h3><p>​    之前写代码碰到瓶颈期，不知道怎么才能提升；有时候还会被项目进度逼着走，不得以的时间为了快速解决问题忽略了一些细节性问题，然而对于这些细节性问题的钻研，往往是提升能力的一大关键点。</p>
+<p>​    “多拆一些好的轮子，而不是刻意去重新发明轮子”在我看来很有道理，为优秀的源码写扩展十分有利于能力的提升。（最近新写的几个umeditor组件与通用方法都写成文档放在git-flow上了，有兴趣的可以看看源码一起分享看法哟）</p>
+<p>​    共勉。</p>
+<p>​    <a href="https://www.zhihu.com/question/31034164" target="_blank" rel="external">什么才算是真正的编程能力（知乎）</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/技术分享/" rel="tag"># 技术分享</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/10/20/盒子模型flex的移动端兼容性问题/" rel="next" title="盒子模型flex的移动端兼容性问题">
+                <i class="fa fa-chevron-left"></i> 盒子模型flex的移动端兼容性问题
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/06/23/前端技术分享讲稿（项目架构与部分隐患）/" rel="prev" title="前端技术分享讲稿（项目架构与部分隐患）">
+                前端技术分享讲稿（项目架构与部分隐患） <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="zhenghangjie" />
+          <p class="site-author-name" itemprop="name">zhenghangjie</p>
+           
+              <p class="site-description motion-element" itemprop="description">前端技术分享</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">tags</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#逼死强迫症之代码规范（性能优化）"><span class="nav-number">1.</span> <span class="nav-text">逼死强迫症之代码规范（性能优化）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#各种兼容坑坑坑（项目经验）"><span class="nav-number">2.</span> <span class="nav-text">各种兼容坑坑坑（项目经验）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#题外话"><span class="nav-number">3.</span> <span class="nav-text">题外话</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zhenghangjie</span>
+</div>
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -94,12 +94,15 @@
 
 
 
+<meta name="description" content="前端技术分享">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
+<meta property="og:title" content="耿耿星河欲曙天">
 <meta property="og:url" content="http://yoursite.com/index.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:site_name" content="耿耿星河欲曙天">
+<meta property="og:description" content="前端技术分享">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="耿耿星河欲曙天">
+<meta name="twitter:description" content="前端技术分享">
 
 
 
@@ -110,7 +113,7 @@
     scheme: 'Mist',
     sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
-    tabs: true,
+    tabs: false,
     motion: true,
     duoshuo: {
       userId: '0',
@@ -134,7 +137,7 @@
 
 
 
-  <title>Hexo</title>
+  <title>耿耿星河欲曙天</title>
   
 
 
@@ -166,12 +169,12 @@
     <div class="custom-logo-site-title">
       <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Hexo</span>
+        <span class="site-title">耿耿星河欲曙天</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
       
-        <p class="site-subtitle"></p>
+        <p class="site-subtitle">耿耿星河欲曙天</p>
       
   </div>
 
@@ -210,16 +213,6 @@
           </a>
         </li>
       
-        
-        <li class="menu-item menu-item-tags">
-          <a href="/tags/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
-            
-            Tags
-          </a>
-        </li>
-      
 
       
     </ul>
@@ -253,16 +246,16 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/11/postName/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/23/前端技术分享讲稿（项目架构与部分隐患）/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
+      <meta itemprop="name" content="zhenghangjie">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
+      <meta itemprop="name" content="耿耿星河欲曙天">
     </span>
 
     
@@ -272,7 +265,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/08/11/postName/" itemprop="url">postName</a></h1>
+                <a class="post-title-link" href="/2017/06/23/前端技术分享讲稿（项目架构与部分隐患）/" itemprop="url">前端技术分享讲稿（项目架构与部分隐患）</a></h1>
         
 
         <div class="post-meta">
@@ -284,8 +277,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-11T11:20:38+08:00">
-                2017-08-11
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-23T11:20:38+08:00">
+                2017-06-23
               </time>
             
 
@@ -324,7 +317,30 @@
       
         
           
-            <p>111</p>
+            <h3 id="PC端：jQuery-Bootstrap-ES5"><a href="#PC端：jQuery-Bootstrap-ES5" class="headerlink" title="PC端：jQuery+Bootstrap+ES5"></a>PC端：jQuery+Bootstrap+ES5</h3><h3 id="biz手机端：Vue-WeUI-ES6"><a href="#biz手机端：Vue-WeUI-ES6" class="headerlink" title="biz手机端：Vue+WeUI+ES6"></a>biz手机端：Vue+WeUI+ES6</h3><h2 id="工程管理：Fist-amp-amp-Gulp（webpack）"><a href="#工程管理：Fist-amp-amp-Gulp（webpack）" class="headerlink" title="工程管理：Fist &amp;&amp; Gulp（webpack）"></a>工程管理：Fist &amp;&amp; Gulp（webpack）</h2><h4 id="工程化的目的："><a href="#工程化的目的：" class="headerlink" title="工程化的目的："></a>工程化的目的：</h4><ol>
+<li>页面/脚本/样式压缩</li>
+<li>页面/脚本/样式合并</li>
+<li>缓存更新（清除）</li>
+<li>静态文件CDN（调用处清除缓存问题）</li>
+</ol>
+<h4 id="Gulp依赖包："><a href="#Gulp依赖包：" class="headerlink" title="Gulp依赖包："></a>Gulp依赖包：</h4><p>（gulp-concat gulp-uglify  js文件合并压缩）</p>
+<p>（gulp-css-spriter  css转化合并压缩）</p>
+<p>（gulp-md5-plus  文件md5计算与替换）</p>
+<p>（gulp-connect  热更新，浏览器自动刷新）</p>
+<p>（gulp-replace  用于在html文件中直接include文件）</p>
+<h4 id="Fist依赖包："><a href="#Fist依赖包：" class="headerlink" title="Fist依赖包："></a>Fist依赖包：</h4><p>资源压缩合并、代码部署、资源文件去除缓存之类的功能</p>
+<h4 id="模块化框架："><a href="#模块化框架：" class="headerlink" title="模块化框架："></a>模块化框架：</h4><p>SeaJS：seajs.use() 模块化开发调用方法</p>
+<h4 id="CMS："><a href="#CMS：" class="headerlink" title="CMS："></a>CMS：</h4><p>WordPress：</p>
+<p>（<strong>WP Super Cache</strong>  重要注意点，更新页面需要remove cache）</p>
+<p>（SEO包）</p>
+<p>（CKEditor 编辑器）</p>
+<p>（Category Order and Taxonomy Terms Order  分类排序插件）</p>
+<p>（Custom Permalinks  不同文章套用不同主题）</p>
+<p>等等</p>
+<h4 id="小程序："><a href="#小程序：" class="headerlink" title="小程序："></a>小程序：</h4><h6 id="…"><a href="#…" class="headerlink" title="…"></a>…</h6><h4 id="三个问题："><a href="#三个问题：" class="headerlink" title="三个问题："></a>三个问题：</h4><p>set cookie设置DOMAIN</p>
+<p>文案类的改变附加到节点的属性值上</p>
+<p>存储在静态资源的资源文件必须更新CDN，更新时间戳清除浏览器端缓存</p>
+<p>后端对url处理</p>
 
           
         
@@ -373,16 +389,16 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/10/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/11/24/2016.11.24前端技术分享讲稿/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
+      <meta itemprop="name" content="zhenghangjie">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
+      <meta itemprop="name" content="耿耿星河欲曙天">
     </span>
 
     
@@ -392,7 +408,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/08/10/hello-world/" itemprop="url">Hello World</a></h1>
+                <a class="post-title-link" href="/2016/11/24/2016.11.24前端技术分享讲稿/" itemprop="url">前端技术分享讲稿（注重细节克服瓶颈）</a></h1>
         
 
         <div class="post-meta">
@@ -404,8 +420,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-10T15:26:04+08:00">
-                2017-08-10
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-11-24T11:20:38+08:00">
+                2016-11-24
               </time>
             
 
@@ -444,15 +460,599 @@
       
         
           
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+            <h3 id="逼死强迫症之代码规范（性能优化）"><a href="#逼死强迫症之代码规范（性能优化）" class="headerlink" title="逼死强迫症之代码规范（性能优化）"></a>逼死强迫症之代码规范（性能优化）</h3><blockquote>
+<p> <strong>var关键字变量命名（利用$符号带头区分jQuery对象与HTML DOM对象）</strong></p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a = <span class="number">0</span>,</div><div class="line">    $loading = $(<span class="string">'#loading'</span>),</div><div class="line">    $body = $(<span class="string">'body'</span>);</div></pre></td></tr></table></figure>
+<blockquote>
+<p> <strong>多次操作DOM对象缓存为变量</strong></p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//不好的写法</span></div><div class="line">$(<span class="string">'#loading'</span>).html(<span class="string">"loading..."</span>);</div><div class="line">$(<span class="string">'#loading'</span>).fadeIn();</div><div class="line"></div><div class="line"><span class="comment">//提升性能的写法</span></div><div class="line"><span class="keyword">var</span> $loading = $(<span class="string">'#loading'</span>);</div><div class="line">$loading.html(<span class="string">"loading..."</span>);</div><div class="line">$loading.fadeIn();</div><div class="line"></div><div class="line"><span class="comment">//再或者是</span></div><div class="line">$loading.html(<span class="string">"loading..."</span>).fadeIn();	<span class="comment">//链式</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>逻辑判断表达式</strong></p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span>(!$a) &#123;</div><div class="line">    $a = $(<span class="string">'#a'</span>);</div><div class="line">&#125;</div><div class="line"><span class="comment">//高性能 + 精简</span></div><div class="line">$a = $a || $(<span class="string">'#a'</span>);</div></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>jQuery选择器</strong></p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//老生常谈</span></div><div class="line"><span class="comment">//不要使用class选择器</span></div><div class="line"><span class="comment">//不要使用class选择器</span></div><div class="line"><span class="comment">//不要使用class选择器(重要的事情说三遍)</span></div><div class="line"></div><div class="line"><span class="keyword">var</span> a = $(<span class="string">"span#a"</span>);</div><div class="line"><span class="keyword">var</span> b = $(<span class="string">"#a #b"</span>); <span class="comment">//性能非常非常的差，而且没有必要(会遍历前一个节点)</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>慎重操作DOM</strong></p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//一次性的DOM渲染</span></div><div class="line"><span class="keyword">var</span> list = <span class="string">'&lt;ul id="list"&gt;'</span>;</div><div class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">1</span>; i &lt; <span class="number">100</span>; i++) &#123;</div><div class="line">	list += <span class="string">'&lt;li&gt;'</span> + i + <span class="string">'&lt;/li&gt;'</span>;</div><div class="line">&#125;</div><div class="line">list += <span class="string">'&lt;/ul&gt;'</span>;</div><div class="line">$(<span class="string">'body'</span>).append(list);</div><div class="line"></div><div class="line"><span class="comment">// 多次重复的DOM渲染(不要这样写！)</span></div><div class="line">$(<span class="string">'#header'</span>).append(<span class="string">'&lt;ul id="list"&gt;&lt;/ul&gt;'</span>);</div><div class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">1</span>; i &lt; <span class="number">100</span>; i++) &#123;</div><div class="line">	$(<span class="string">'#list'</span>).append(<span class="string">'&lt;li&gt;'</span> + i + <span class="string">'&lt;/li&gt;'</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>慎重使用全局变量，少用attribute存数据，data()方法附加数据（某前端live讲到数据存取性能时候提到，但是并没有找到具体性能指标）</strong></p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//项目中多数使用attr存取数据</span></div><div class="line">&lt;li data-id=<span class="string">"877"</span> value=<span class="string">"101172"</span> retype=<span class="string">"pub"</span>&gt;&lt;/li&gt;</div><div class="line"><span class="comment">//采用jQuery的内部函数data()来存储状态</span></div><div class="line">$(<span class="string">'#a'</span>).data(<span class="string">'key'</span>, <span class="string">'value'</span>); <span class="comment">//存储</span></div><div class="line">$(<span class="string">'#a'</span>).data(<span class="string">'key'</span>); <span class="comment">//调用</span></div></pre></td></tr></table></figure>
+<h3 id="各种兼容坑坑坑（项目经验）"><a href="#各种兼容坑坑坑（项目经验）" class="headerlink" title="各种兼容坑坑坑（项目经验）"></a>各种兼容坑坑坑（项目经验）</h3><blockquote>
+<p><strong>神奇的safari兼容</strong></p>
+</blockquote>
+<p><strong>safari的new Data()只能识别”xxxx/xx/xx”，不能识别”xxxx-xx-xx”</strong></p>
+<blockquote>
+<p><strong>神奇的获取窗口位置兼容写法</strong></p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> leftX = <span class="keyword">typeof</span> <span class="built_in">window</span>.screenLeft == <span class="string">'number'</span> ? <span class="built_in">window</span>.screenLeft : <span class="built_in">window</span>.screenX;</div><div class="line">ver topY = <span class="keyword">typeof</span> <span class="built_in">window</span>.screenTop == <span class="string">'number'</span> ? <span class="built_in">window</span>.screenTop : <span class="built_in">window</span>.screenY;</div></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>神奇的Firefox兼容</strong></p>
+</blockquote>
+<p><strong>window.event不能用！而且没有removeNode方法，只能使用node.parentNode.removeChild(node)</strong></p>
+<p>操作目录树的时候被坑过。</p>
+<blockquote>
+<p><strong>迷之手机端video对象（iOS兼容）</strong></p>
+</blockquote>
+<p><strong>之前iOS操作video对象（设置display:none时不会隐藏弹出的播放窗口，只会隐藏页面上的video节点），但是目前用户反馈弹出的播放窗口也会隐藏了！（还未找到有人出现相同问题）</strong></p>
+<h3 id="题外话"><a href="#题外话" class="headerlink" title="题外话"></a>题外话</h3><p>​    之前写代码碰到瓶颈期，不知道怎么才能提升；有时候还会被项目进度逼着走，不得以的时间为了快速解决问题忽略了一些细节性问题，然而对于这些细节性问题的钻研，往往是提升能力的一大关键点。</p>
+<p>​    “多拆一些好的轮子，而不是刻意去重新发明轮子”在我看来很有道理，为优秀的源码写扩展十分有利于能力的提升。（最近新写的几个umeditor组件与通用方法都写成文档放在git-flow上了，有兴趣的可以看看源码一起分享看法哟）</p>
+<p>​    共勉。</p>
+<p>​    <a href="https://www.zhihu.com/question/31034164" target="_blank" rel="external">什么才算是真正的编程能力（知乎）</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/10/20/盒子模型flex的移动端兼容性问题/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhenghangjie">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="耿耿星河欲曙天">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2016/10/20/盒子模型flex的移动端兼容性问题/" itemprop="url">盒子模型flex的移动端兼容性问题</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-10-20T11:20:38+08:00">
+                2016-10-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>关于flex布局，W3C算是出了好多套的规范，但是对各个浏览器的兼容性问题，那就真的不敢恭维。</p>
+</blockquote>
+<ul>
+<li>W3C 2009年第1次草案：<a href="https%3A//www.w3.org/TR/2009/WD-css3-flexbox-20090723/">display:box</a></li>
+<li>W3C 2011年第2次草案：<a href="https%3A//www.w3.org/TR/2011/WD-css3-flexbox-20110322/">display:flexbox | inline-flexbox</a></li>
+<li>W3C 2012年第5次草案及以后的候选推荐标准：<a href="https%3A//www.w3.org/TR/2012/WD-css3-flexbox-20120612/">display:flex | inline-flex</a></li>
+</ul>
+<blockquote>
+<p>以前一直以为新标准的display: flex 能够完全替代display: -webkit-box，然而并不能。</p>
+<p><strong> 开发中发现，iOS8下的微信内置浏览器与Safari不支持display:flex的写法。</strong></p>
+</blockquote>
+<h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">//好长一段，包括三个版本的写法flex、flexbox、box</div><div class="line"><span class="selector-class">.flex-container</span> &#123;</div><div class="line">  <span class="attribute">display</span>: -moz-box;  <span class="comment">/* Firefox */</span> </div><div class="line">  <span class="attribute">display</span>: -ms-flexbox;    <span class="comment">/* IE10 */</span> </div><div class="line">  <span class="attribute">display</span>: -webkit-box;    <span class="comment">/* Safari */</span>  </div><div class="line">  <span class="attribute">display</span>: -webkit-flex;    <span class="comment">/* Chrome, WebKit */</span> </div><div class="line">  <span class="attribute">display</span>: box;  </div><div class="line">  <span class="attribute">display</span>: flexbox;  </div><div class="line">  <span class="attribute">display</span>: flex;   </div><div class="line">  <span class="attribute">align-items</span>: center;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>另外，weui的0.4测试版本并没有做flex的兼容性优化，一直到1.0版本才加入兼容熟悉，所以慎用。</strong></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/08/16/关于 input type=file 样式兼容的一个小技巧/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhenghangjie">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="耿耿星河欲曙天">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2016/08/16/关于 input type=file 样式兼容的一个小技巧/" itemprop="url">关于input[type=file]样式兼容的一个小技巧</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-08-16T11:20:38+08:00">
+                2016-08-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>大家都知道各浏览器对文件上传输入框的表现形式不一，如下图：</p>
+</blockquote>
+<p><img src="http://upload-images.jianshu.io/upload_images/2771059-54def36dd358481d.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="文件上传输入框"></p>
+<blockquote>
+<p>前几天发现好多同学在项目中的做法都是将input type=file的opacity设置为0，然后加一个浮层，用于改变输入框的样式。</p>
+</blockquote>
+<h3 id="那么问题来了！"><a href="#那么问题来了！" class="headerlink" title="那么问题来了！"></a>那么问题来了！</h3><hr>
+<blockquote>
+<p>宝宝们都忽略了在<strong>旧版本Firefox</strong>，<strong>Opera浏览器</strong>以及<strong>IE9以下</strong>，文件输入框的形式是一条长长的输入框，带一个按钮，所以就会造成按钮的单击区域只有后半段，前半段只有双击才能实现文件上传。</p>
+</blockquote>
+<h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><hr>
+<blockquote>
+<p>给文件上传框设置一个<strong>很大很大</strong>的字号，于是在旧版本浏览器下就只能点到按钮啦！<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.uploadFile</span> &#123;</div><div class="line">    <span class="attribute">opacity</span>: <span class="number">0</span>;</div><div class="line">    <span class="attribute">filter</span>: <span class="built_in">alpha</span>(opacity:0);</div><div class="line">    <span class="attribute">cursor</span>: pointer;</div><div class="line">    <span class="attribute">position</span>: absolute;</div><div class="line">    <span class="attribute">left</span>: <span class="number">0</span>;</div><div class="line">    <span class="attribute">top</span>: <span class="number">0</span>;</div><div class="line">    font-size: 999px; //设置一个很大很大的字号，让右侧按钮撑开</div><div class="line">    overflow: hidden; // 把超出部分隐藏</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+</blockquote>
+<p><strong>项目中：前台“上传logo”，后台各种码上传图片，上传音视频按钮都存在此类现象。</strong><br>各位有空看到可以改一下。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/08/15/FECS -- 百度前端代码风格工具套件/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhenghangjie">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="耿耿星河欲曙天">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2016/08/15/FECS -- 百度前端代码风格工具套件/" itemprop="url">FECS -- 百度前端代码风格工具套件</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-08-15T11:20:38+08:00">
+                2016-08-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <hr>
+<p>FECS 是基于 Node.js 的前端代码风格工具套件，包含对 <strong>JavaScript</strong>、<strong>CSS</strong> 与 <strong>HTML</strong> 的检查及格式化。</p>
+<blockquote>
+<ul>
+<li>安装FECS以及sublime插件</li>
+<li>代码检查</li>
+<li>代码格式化<br><a href="https://github.com/ecomfe/fecs/wiki" target="_blank" rel="external">官方github说明</a></li>
+</ul>
+</blockquote>
+<h3 id="Mac下FECS以及sublime插件安装说明"><a href="#Mac下FECS以及sublime插件安装说明" class="headerlink" title="Mac下FECS以及sublime插件安装说明"></a><a href="http://fecs.baidu.com/api" target="_blank" rel="external">Mac下FECS以及sublime插件安装说明</a></h3><figure class="highlight cmd"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ [sudo] npm install fecs -g</div><div class="line"></div><div class="line">//没了..就是那么简单</div><div class="line">//fecs -v能看到版本就是安装成功了</div></pre></td></tr></table></figure>
+<blockquote>
+<p>接下来我们来装sublime插件(<strong><a href="https://github.com/leeight/Baidu-FE-Code-Style" target="_blank" rel="external">Baidu-FE-Code-Style（下载地址）</a></strong>，也可以直接使用命令)<br><figure class="highlight cmd"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> ~/Library/Application\ Support/Sublime\ Text\ <span class="number">2</span>/Packages/</div><div class="line">git clone https://github.com/leeight/Baidu-FE-Code-Style.git</div><div class="line">chmod -R <span class="number">777</span> Baidu-FE-Code-Style/</div><div class="line"></div><div class="line">//一定要开读写权限，<span class="number">755</span>就够了</div></pre></td></tr></table></figure></p>
+<p>装完插件记得配置node和fecs的环境变量 <code>Preferences</code> -&gt; <code>Package Settings</code> -&gt; <code>Baidu-FE-Code-Style</code> -&gt; <code>Settings -User</code>。<br><figure class="highlight cmd"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  "env": &#123;</div><div class="line">    "fecs_bin": "/usr/local/bin/fecs",</div><div class="line">    "node_bin": "/usr/local/bin/node"</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">//填写系统路径</div></pre></td></tr></table></figure></p>
+</blockquote>
+<hr>
+<h3 id="FECS的代码检查功能"><a href="#FECS的代码检查功能" class="headerlink" title="FECS的代码检查功能"></a><a href="https://github.com/ecomfe/fecs/wiki/Check" target="_blank" rel="external">FECS的代码检查功能</a></h3><figure class="highlight cmd"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$ fecs check [target...]</div><div class="line"></div><div class="line">$ fecs check [target...] --<span class="built_in">type</span>=js,css</div><div class="line"></div><div class="line">$ fecs check [target...] --<span class="built_in">type</span>=html</div><div class="line"></div><div class="line">//[target...]为目录名称</div></pre></td></tr></table></figure>
+<p>结果<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">以上省略一万行...</div><div class="line">fecs ERROR → line 134, col 2: Newline required at end of file but not found. //书写不规范的地方</div><div class="line">fecs  INFO Linter found 24,517 errors in 93 of 100 files.</div><div class="line">//文件数、错误数</div><div class="line">fecs@0.8.4: 8216ms //耗时</div></pre></td></tr></table></figure></p>
+<hr>
+<h3 id="FECS的代码格式化功能"><a href="#FECS的代码格式化功能" class="headerlink" title="FECS的代码格式化功能"></a><a href="https://github.com/ecomfe/fecs/wiki/Format" target="_blank" rel="external">FECS的代码格式化功能</a></h3><figure class="highlight cmd"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ fecs <span class="built_in">format</span> [target...]</div><div class="line"></div><div class="line">$ fecs <span class="built_in">format</span> [target...] --<span class="built_in">type</span>=js,css</div><div class="line"></div><div class="line">//[target...]为目录名称</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">//Input</div><div class="line"></div><div class="line">cd /Applications/XAMPP/htdocs/cli-im-new/Fist/static/</div><div class="line">fecs format css --type=css</div></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>$$在当前目录下生成了一个output文件夹，用于存放格式化后的文件$$</strong></p>
+</blockquote>
+<p>百度声明：目前对 HTML 代码的格式化的实现还处于测试阶段，不建议使用时作自定义配置。（所以批量代码格式化功能目前目测只能用于格式化HTML与css，不敢去替换js）</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/08/07/HTML5之文件拖拽上传/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhenghangjie">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="耿耿星河欲曙天">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2016/08/07/HTML5之文件拖拽上传/" itemprop="url">HTML5之文件拖拽上传</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-08-07T10:20:38+08:00">
+                2016-08-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>标签： 前端、交互</p>
+<hr>
+<blockquote>
+<p>今天某产品经理蹭蹭蹭跑过来说，我们现在项目里对图片、文件上传的交互体验不太好，可不可以实现拖拽上传。<br>然而拖拽要用到HTML5的<strong>Drag</strong>和<strong>drop</strong>属性，并不兼容非现代浏览器。</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>各位前端的同学们都曾为了IE8兼容舍弃了很多交互上的体验，但是何不做个区分，让使用现代浏览器的用户感受到我们炫酷的产品体验呢。</p>
+</blockquote>
+<h3 id="接下来是实践！"><a href="#接下来是实践！" class="headerlink" title="接下来是实践！"></a>接下来是实践！</h3><hr>
+<p>首先使用<a href="http://www.w3school.com.cn/html5/html_5_webworkers.asp" target="_blank" rel="external">Web Worker</a>判断是否为支持HTML5的浏览器<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">if (typeof(Worker) !== &quot;undefined&quot;) &#123;</div><div class="line">    // 浏览器支持HTML5</div><div class="line">&#125; else &#123;</div><div class="line">    // 浏览器不支持HTML5</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>页面中放置一个拖拽区域area，preview用于预览图片信息。（目前只写了个图片上传）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;div id=&quot;area&quot;&gt;将图片拖拽到此区域&lt;/div&gt; </div><div class="line">&lt;div id=&quot;preview&quot;&gt;&lt;/div&gt;</div></pre></td></tr></table></figure></p>
+<p>阻止浏览器默认的拖拽操作：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">$(document).on(&#123;</div><div class="line">    dragleave:function(e)&#123;		//拖离</div><div class="line">        e.preventDefault();</div><div class="line">    &#125;,</div><div class="line">    drop:function(e)&#123;			//拖后放</div><div class="line">    	e.preventDefault();</div><div class="line">    &#125;,</div><div class="line">    dragenter:function(e)&#123;		//拖进</div><div class="line">    	e.preventDefault();</div><div class="line">    &#125;,</div><div class="line">    dragover:function(e)&#123;		//拖来拖去</div><div class="line">        e.preventDefault();</div><div class="line">    &#125;</div><div class="line">	&#125;);</div></pre></td></tr></table></figure></p>
+<p>上传实现主体代码，主要用到<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/FileList" target="_blank" rel="external">文件API</a>中的一个FileList接口，通过e.dataTransfer.files拖拽事件传递的文件信息，获取本地文件列表信息，通过length属性获取文件数量。如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line">var box = document.getElementById(&apos;area&apos;); //拖拽区域</div><div class="line">box.addEventListener(&quot;drop&quot;,</div><div class="line">function(e) &#123;</div><div class="line">    e.preventDefault(); //取消默认浏览器拖拽效果</div><div class="line">    var fileList = e.dataTransfer.files; //获取文件对象</div><div class="line">    //检测是否是拖拽文件到页面的操作</div><div class="line">    if (fileList.length == 0) &#123;</div><div class="line">        return false;</div><div class="line">    &#125;</div><div class="line">    //检测文件是不是图片</div><div class="line">    if (fileList[0].type.indexOf(&apos;image&apos;) === -1) &#123;</div><div class="line">        alert(&quot;您拖的不是图片！&quot;);</div><div class="line">        return false;</div><div class="line">    &#125;</div><div class="line">    //拖拉图片到浏览器，可以实现预览功能</div><div class="line">    var img = window.webkitURL.createObjectURL(fileList[0]);</div><div class="line">    var filename = fileList[0].name; //图片名称</div><div class="line">    var filesize = Math.floor((fileList[0].size) / 1024);</div><div class="line">    if (filesize &gt; 500) &#123;</div><div class="line">        alert(&quot;上传大小不能超过500K.&quot;);</div><div class="line">        return false;</div><div class="line">    &#125;</div><div class="line">    //alert(filesize);</div><div class="line">    var str = &quot;![](&quot; + img + &quot;)&lt;p&gt;图片名称：&quot; + filename + &quot;&lt;/p&gt;&lt;p&gt;大小：&quot; + filesize + &quot;KB&lt;/p&gt;&quot;;</div><div class="line">    $(&quot;#preview&quot;).html(str);</div><div class="line"></div><div class="line">    //上传</div><div class="line">    xhr = new XMLHttpRequest();</div><div class="line">    xhr.open(&quot;post&quot;, &quot;upload.php&quot;, true);</div><div class="line">    xhr.setRequestHeader(&quot;X-Requested-With&quot;, &quot;XMLHttpRequest&quot;);</div><div class="line"></div><div class="line">    var fd = new FormData();</div><div class="line">    fd.append(&apos;mypic&apos;, fileList[0]);</div><div class="line"></div><div class="line">    xhr.send(fd);</div><div class="line"></div><div class="line">&#125;,</div><div class="line">false);</div></pre></td></tr></table></figure></p>
+<p>后端PHP接收上传的文件信息(用于测试)，代码如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">&lt;?php</div><div class="line">$mypic = $_FILES[&quot;mypic&quot;];</div><div class="line">if(!empty($mypic))&#123;</div><div class="line">    $picname = $_FILES[&apos;mypic&apos;][&apos;name&apos;];</div><div class="line">    $picsize = $_FILES[&apos;mypic&apos;][&apos;size&apos;];</div><div class="line">    if ($picsize &gt; 512000) &#123;</div><div class="line">        echo &apos;图片大小不能超过500k&apos;;</div><div class="line">        exit;</div><div class="line">    &#125;</div><div class="line">    $type = strstr($picname, &apos;.&apos;);</div><div class="line">    if ($type != &quot;.gif&quot; &amp;&amp; $type != &quot;.jpg&quot;) &#123;</div><div class="line">    	echo &apos;图片格式不对！&apos;;</div><div class="line">        exit;</div><div class="line">    &#125;</div><div class="line">    $pics = &apos;hello&apos; . $type;</div><div class="line">    //上传路径</div><div class="line">    $pic_path = &quot;pics/&quot;. $pics;</div><div class="line">    move_uploaded_file($mypic[&quot;tmp_name&quot;],$pic_path);</div><div class="line">&#125;</div><div class="line">?&gt;</div><div class="line">&lt;meta charset=&quot;utf-8&quot;&gt;</div><div class="line">&lt;form action=&quot;&quot; method=&quot;post&quot; enctype=&quot;multipart/form-data&quot;&gt;</div><div class="line">&lt;input type=&quot;file&quot; name=&quot;mypic&quot;&gt;</div><div class="line">&lt;input type=&quot;submit&quot; value=&quot;上传&quot;&gt;</div><div class="line">&lt;/form&gt;</div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>具体文件上传方式待定，本文用于前端方法的实现说明，有利于现代浏览器用户的交互体验。</p>
+</blockquote>
 
           
         
@@ -523,10 +1123,10 @@
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
-               alt="John Doe" />
-          <p class="site-author-name" itemprop="name">John Doe</p>
+               alt="zhenghangjie" />
+          <p class="site-author-name" itemprop="name">zhenghangjie</p>
            
-              <p class="site-description motion-element" itemprop="description"></p>
+              <p class="site-description motion-element" itemprop="description">前端技术分享</p>
           
         </div>
         <nav class="site-state motion-element">
@@ -534,7 +1134,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -542,6 +1142,15 @@
 
           
 
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">tags</span>
+              
+            </div>
           
 
         </nav>
@@ -584,20 +1193,9 @@
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">John Doe</span>
+  <span class="author" itemprop="copyrightHolder">zhenghangjie</span>
 </div>
 
-
-<div class="powered-by">
-  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
-</div>
-
-<div class="theme-info">
-  Theme -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Mist
-  </a>
-</div>
 
 
         

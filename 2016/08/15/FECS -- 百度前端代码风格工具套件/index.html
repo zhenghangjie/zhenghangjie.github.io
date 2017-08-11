@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="工具应用," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="FECS 是基于 Node.js 的前端代码风格工具套件，包含对 JavaScript、CSS 与 HTML 的检查及格式化。   安装FECS以及sublime插件 代码检查 代码格式化官方github说明   Mac下FECS以及sublime插件安装说明1234$ [sudo] npm install fecs -g//没了..就是那么简单//fecs -v能看到版本就是安装成功了  接下">
+<meta name="keywords" content="工具应用">
+<meta property="og:type" content="article">
+<meta property="og:title" content="FECS -- 百度前端代码风格工具套件">
+<meta property="og:url" content="http://yoursite.com/2016/08/15/FECS -- 百度前端代码风格工具套件/index.html">
+<meta property="og:site_name" content="耿耿星河欲曙天">
+<meta property="og:description" content="FECS 是基于 Node.js 的前端代码风格工具套件，包含对 JavaScript、CSS 与 HTML 的检查及格式化。   安装FECS以及sublime插件 代码检查 代码格式化官方github说明   Mac下FECS以及sublime插件安装说明1234$ [sudo] npm install fecs -g//没了..就是那么简单//fecs -v能看到版本就是安装成功了  接下">
+<meta property="og:updated_time" content="2017-08-11T08:57:15.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="FECS -- 百度前端代码风格工具套件">
+<meta name="twitter:description" content="FECS 是基于 Node.js 的前端代码风格工具套件，包含对 JavaScript、CSS 与 HTML 的检查及格式化。   安装FECS以及sublime插件 代码检查 代码格式化官方github说明   Mac下FECS以及sublime插件安装说明1234$ [sudo] npm install fecs -g//没了..就是那么简单//fecs -v能看到版本就是安装成功了  接下">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: false,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/08/15/FECS -- 百度前端代码风格工具套件/"/>
+
+
+
+
+
+  <title>FECS -- 百度前端代码风格工具套件 | 耿耿星河欲曙天</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">耿耿星河欲曙天</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">耿耿星河欲曙天</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/08/15/FECS -- 百度前端代码风格工具套件/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhenghangjie">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="耿耿星河欲曙天">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">FECS -- 百度前端代码风格工具套件</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-08-15T11:20:38+08:00">
+                2016-08-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <hr>
+<p>FECS 是基于 Node.js 的前端代码风格工具套件，包含对 <strong>JavaScript</strong>、<strong>CSS</strong> 与 <strong>HTML</strong> 的检查及格式化。</p>
+<blockquote>
+<ul>
+<li>安装FECS以及sublime插件</li>
+<li>代码检查</li>
+<li>代码格式化<br><a href="https://github.com/ecomfe/fecs/wiki" target="_blank" rel="external">官方github说明</a></li>
+</ul>
+</blockquote>
+<h3 id="Mac下FECS以及sublime插件安装说明"><a href="#Mac下FECS以及sublime插件安装说明" class="headerlink" title="Mac下FECS以及sublime插件安装说明"></a><a href="http://fecs.baidu.com/api" target="_blank" rel="external">Mac下FECS以及sublime插件安装说明</a></h3><figure class="highlight cmd"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ [sudo] npm install fecs -g</div><div class="line"></div><div class="line">//没了..就是那么简单</div><div class="line">//fecs -v能看到版本就是安装成功了</div></pre></td></tr></table></figure>
+<blockquote>
+<p>接下来我们来装sublime插件(<strong><a href="https://github.com/leeight/Baidu-FE-Code-Style" target="_blank" rel="external">Baidu-FE-Code-Style（下载地址）</a></strong>，也可以直接使用命令)<br><figure class="highlight cmd"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> ~/Library/Application\ Support/Sublime\ Text\ <span class="number">2</span>/Packages/</div><div class="line">git clone https://github.com/leeight/Baidu-FE-Code-Style.git</div><div class="line">chmod -R <span class="number">777</span> Baidu-FE-Code-Style/</div><div class="line"></div><div class="line">//一定要开读写权限，<span class="number">755</span>就够了</div></pre></td></tr></table></figure></p>
+<p>装完插件记得配置node和fecs的环境变量 <code>Preferences</code> -&gt; <code>Package Settings</code> -&gt; <code>Baidu-FE-Code-Style</code> -&gt; <code>Settings -User</code>。<br><figure class="highlight cmd"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  "env": &#123;</div><div class="line">    "fecs_bin": "/usr/local/bin/fecs",</div><div class="line">    "node_bin": "/usr/local/bin/node"</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">//填写系统路径</div></pre></td></tr></table></figure></p>
+</blockquote>
+<hr>
+<h3 id="FECS的代码检查功能"><a href="#FECS的代码检查功能" class="headerlink" title="FECS的代码检查功能"></a><a href="https://github.com/ecomfe/fecs/wiki/Check" target="_blank" rel="external">FECS的代码检查功能</a></h3><figure class="highlight cmd"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$ fecs check [target...]</div><div class="line"></div><div class="line">$ fecs check [target...] --<span class="built_in">type</span>=js,css</div><div class="line"></div><div class="line">$ fecs check [target...] --<span class="built_in">type</span>=html</div><div class="line"></div><div class="line">//[target...]为目录名称</div></pre></td></tr></table></figure>
+<p>结果<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">以上省略一万行...</div><div class="line">fecs ERROR → line 134, col 2: Newline required at end of file but not found. //书写不规范的地方</div><div class="line">fecs  INFO Linter found 24,517 errors in 93 of 100 files.</div><div class="line">//文件数、错误数</div><div class="line">fecs@0.8.4: 8216ms //耗时</div></pre></td></tr></table></figure></p>
+<hr>
+<h3 id="FECS的代码格式化功能"><a href="#FECS的代码格式化功能" class="headerlink" title="FECS的代码格式化功能"></a><a href="https://github.com/ecomfe/fecs/wiki/Format" target="_blank" rel="external">FECS的代码格式化功能</a></h3><figure class="highlight cmd"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ fecs <span class="built_in">format</span> [target...]</div><div class="line"></div><div class="line">$ fecs <span class="built_in">format</span> [target...] --<span class="built_in">type</span>=js,css</div><div class="line"></div><div class="line">//[target...]为目录名称</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">//Input</div><div class="line"></div><div class="line">cd /Applications/XAMPP/htdocs/cli-im-new/Fist/static/</div><div class="line">fecs format css --type=css</div></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>$$在当前目录下生成了一个output文件夹，用于存放格式化后的文件$$</strong></p>
+</blockquote>
+<p>百度声明：目前对 HTML 代码的格式化的实现还处于测试阶段，不建议使用时作自定义配置。（所以批量代码格式化功能目前目测只能用于格式化HTML与css，不敢去替换js）</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/工具应用/" rel="tag"># 工具应用</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/08/07/HTML5之文件拖拽上传/" rel="next" title="HTML5之文件拖拽上传">
+                <i class="fa fa-chevron-left"></i> HTML5之文件拖拽上传
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/08/16/关于 input type=file 样式兼容的一个小技巧/" rel="prev" title="关于input[type=file]样式兼容的一个小技巧">
+                关于input[type=file]样式兼容的一个小技巧 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="zhenghangjie" />
+          <p class="site-author-name" itemprop="name">zhenghangjie</p>
+           
+              <p class="site-description motion-element" itemprop="description">前端技术分享</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">tags</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Mac下FECS以及sublime插件安装说明"><span class="nav-number">1.</span> <span class="nav-text">Mac下FECS以及sublime插件安装说明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#FECS的代码检查功能"><span class="nav-number">2.</span> <span class="nav-text">FECS的代码检查功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#FECS的代码格式化功能"><span class="nav-number">3.</span> <span class="nav-text">FECS的代码格式化功能</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zhenghangjie</span>
+</div>
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
