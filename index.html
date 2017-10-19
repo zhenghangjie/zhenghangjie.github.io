@@ -257,6 +257,164 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/19/Vue移动端开发的那些坑/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhenghangjie">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="耿耿星河欲曙天">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/10/19/Vue移动端开发的那些坑/" itemprop="url">Vue移动端开发的那些坑</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-19T11:46:38+08:00">
+                2017-10-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="1-IOS移动端-原始输入法问题"><a href="#1-IOS移动端-原始输入法问题" class="headerlink" title="1. IOS移动端 原始输入法问题"></a>1. IOS移动端 原始输入法问题</h3><p>IOS原始输入法，中文输入时，无法触发keyup事件，而keyup时对应的enter事件也无法触发</p>
+<p>解决方案： </p>
+<ol>
+<li>将keyup监听替换成值的watch</li>
+<li>让使用者安装三方输入法，比如搜狗输入法（不太现实）</li>
+</ol>
+<h3 id="2-IOS移动端click事件300ms的延迟响应"><a href="#2-IOS移动端click事件300ms的延迟响应" class="headerlink" title="2. IOS移动端click事件300ms的延迟响应"></a>2. IOS移动端click事件300ms的延迟响应</h3><p>移动设备上的web网页是有300ms延迟的，玩玩会造成按钮点击延迟甚至是点击失效。这是由于区分单击事件和双击屏幕缩放的历史原因造成的,</p>
+<p>2007年苹果发布首款iphone上IOS系统搭载的safari为了将适用于PC端上大屏幕的网页能比较好的展示在手机端上，使用了双击缩放(double tap to zoom)的方案，比如你在手机上用浏览器打开一个PC上的网页，你可能在看到页面内容虽然可以撑满整个屏幕，但是字体、图片都很小看不清，此时可以快速双击屏幕上的某一部分，你就能看清该部分放大后的内容，再次双击后能回到原始状态。</p>
+<p>双击缩放是指用手指在屏幕上快速点击两次，iOS 自带的 Safari 浏览器会将网页缩放至原始比例。</p>
+<p>原因就出在浏览器需要如何判断快速点击上，当用户在屏幕上单击某一个元素时候，例如跳转链接，此处浏览器会先捕获该次单击，但浏览器不能决定用户是单纯要点击链接还是要双击该部分区域进行缩放操作，所以，捕获第一次单击后，浏览器会先Hold一段时间t，如果在t时间区间里用户未进行下一次点击，则浏览器会做单击跳转链接的处理，如果t时间里用户进行了第二次单击操作，则浏览器会禁止跳转，转而进行对该部分区域页面的缩放操作。那么这个时间区间t有多少呢？在IOS safari下，大概为300毫秒。这就是延迟的由来。造成的后果用户纯粹单击页面，页面需要过一段时间才响应，给用户慢体验感觉，对于web开发者来说是，页面js捕获click事件的回调函数处理，需要300ms后才生效，也就间接导致影响其他业务逻辑的处理。</p>
+<p>解决方案：</p>
+<ul>
+<li>fastclick可以解决在手机上点击事件的300ms延迟</li>
+<li>zepto的touch模块，tap事件也是为了解决在click的延迟问题</li>
+<li>触摸事件的响应顺序为 touchstart –&gt; touchmove –&gt; touchend –&gt; click,也可以通过绑定ontouchstart事件，加快对事件的响应，解决300ms延迟问题</li>
+</ul>
+<h3 id="3-一些情况下对非可点击元素如-label-span-监听click事件，ios下不会触发，css增加cursor-pointer就搞定了。"><a href="#3-一些情况下对非可点击元素如-label-span-监听click事件，ios下不会触发，css增加cursor-pointer就搞定了。" class="headerlink" title="3. 一些情况下对非可点击元素如(label,span)监听click事件，ios下不会触发，css增加cursor:pointer就搞定了。"></a>3. 一些情况下对非可点击元素如(label,span)监听click事件，ios下不会触发，css增加cursor:pointer就搞定了。</h3><h3 id="4-移动端input元素聚焦问题"><a href="#4-移动端input元素聚焦问题" class="headerlink" title="4. 移动端input元素聚焦问题"></a>4. 移动端input元素聚焦问题</h3><p>问题出现场景重现： 项目需要写一个搜索组件，相关代码如下</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"y-search"</span> <span class="attr">:style</span>=<span class="string">"styles"</span> <span class="attr">:clear</span>=<span class="string">"clear"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">"#"</span> <span class="attr">onsubmit</span>=<span class="string">"return false;"</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"search"</span></span></div><div class="line"><span class="tag">        <span class="attr">class</span>=<span class="string">"y-search-input"</span></span></div><div class="line"><span class="tag">        <span class="attr">v-model</span>=<span class="string">'model'</span></span></div><div class="line"><span class="tag">        <span class="attr">:placeholder</span>=<span class="string">"placeholder"</span></span></div><div class="line"><span class="tag">        @<span class="attr">keyup</span>=<span class="string">"searchKeyupFn"</span></span></div><div class="line"><span class="tag">        @<span class="attr">click</span>=<span class="string">"searchFocusFn"</span></span></div><div class="line"><span class="tag">        @<span class="attr">keyup.enter</span>=<span class="string">"searchEnterFn"</span></span></div><div class="line"><span class="tag">        @<span class="attr">blur</span>=<span class="string">"searchBlurFn"</span></span></div><div class="line"><span class="tag">      /&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">y-icons</span> <span class="attr">class</span>=<span class="string">"search-icon"</span> <span class="attr">name</span>=<span class="string">"search"</span> <span class="attr">size</span>=<span class="string">"14"</span>&gt;</span><span class="tag">&lt;/<span class="name">y-icons</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">form</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">v-if</span>=<span class="string">"showClose"</span> @<span class="attr">click</span>=<span class="string">"closeFn"</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">y-icons</span> <span class="attr">class</span>=<span class="string">"close-icon"</span> <span class="attr">name</span>=<span class="string">'close'</span> <span class="attr">size</span>=<span class="string">'12'</span>&gt;</span><span class="tag">&lt;/<span class="name">y-icons</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>当我进行keyup事件的时候，其对应的enter事件，不能实现失焦功能。而实际项目中需要实现失焦，那么只能通过操作$el节点了。</p>
+<p>解决方案：在对应的enter事件时进行DOM操作</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">searchEnterFn (e) &#123;</div><div class="line">  <span class="built_in">document</span>.getElementsByClassName(<span class="string">'y-search-input'</span>)[<span class="number">0</span>].blur()</div><div class="line">  <span class="comment">// dosomething yourself</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="5-fixed定位缺陷"><a href="#5-fixed定位缺陷" class="headerlink" title="5. fixed定位缺陷"></a>5. fixed定位缺陷</h3><p>ios下fixed元素容易定位出错，软键盘弹出时，影响fixed元素定位<br>android下fixed表现要比iOS更好，软键盘弹出时，不会影响fixed元素定位<br>ios4下不支持position:fixed<br>解决方案： 可用iScroll插件解决这个问题</p>
+<h3 id="6-阻止旋转屏幕时自动调整字体大小"><a href="#6-阻止旋转屏幕时自动调整字体大小" class="headerlink" title="6. 阻止旋转屏幕时自动调整字体大小"></a>6. 阻止旋转屏幕时自动调整字体大小</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">* &#123;</div><div class="line">  <span class="attribute">-webkit-text-size-adjust</span>: none;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="7-calc的兼容处理"><a href="#7-calc的兼容处理" class="headerlink" title="7. calc的兼容处理"></a>7. calc的兼容处理</h3><p>CSS3中的calc变量在iOS6浏览器中必须加-webkit-前缀，目前的FF浏览器已经无需-moz-前缀。<br>Android浏览器目前仍然不支持calc，所以要在之前增加一个保守尺寸：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">div</span> &#123; </div><div class="line">  <span class="attribute">width</span>: <span class="number">95%</span>; </div><div class="line">  <span class="attribute">width</span>: <span class="built_in">-webkit-calc</span>(100% - 50px); </div><div class="line">  <span class="attribute">width</span>: <span class="built_in">calc</span>(100% - 50px); </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="8-在移动端修改难看的点击的高亮效果，iOS和安卓下都有效"><a href="#8-在移动端修改难看的点击的高亮效果，iOS和安卓下都有效" class="headerlink" title="8. 在移动端修改难看的点击的高亮效果，iOS和安卓下都有效"></a>8. 在移动端修改难看的点击的高亮效果，iOS和安卓下都有效</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">* &#123;</div><div class="line">  <span class="attribute">-webkit-tap-highlight-color</span>: <span class="built_in">rgba</span>(0,0,0,0);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>不过这个方法在现在的安卓浏览器下，只能去掉那个橙色的背景色，点击产生的高亮边框还是没有去掉，有待解决！</p>
+<p>一个CSS3的属性，加上后，所关联的元素的事件监听都会失效，等于让元素变得“看得见，点不着”。IE到11才开始支持，其他浏览器的当前版本基本都支持。详细介绍见这里：<a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/pointer-events" target="_blank" rel="external">https://developer.mozilla.org/zh-CN/docs/Web/CSS/pointer-events</a></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">pointer-events</span>: <span class="selector-tag">none</span>;</div></pre></td></tr></table></figure>
+<h3 id="9-IOS下取消input在输入的时候英文首字母的默认大写"><a href="#9-IOS下取消input在输入的时候英文首字母的默认大写" class="headerlink" title="9. IOS下取消input在输入的时候英文首字母的默认大写"></a>9. IOS下取消input在输入的时候英文首字母的默认大写</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">autocapitalize</span>=<span class="string">"none"</span>&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="10-禁止-IOS-弹出各种操作窗口"><a href="#10-禁止-IOS-弹出各种操作窗口" class="headerlink" title="10. 禁止 IOS 弹出各种操作窗口"></a>10. 禁止 IOS 弹出各种操作窗口</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">-webkit-touch-callout</span>: <span class="selector-tag">none</span>;</div></pre></td></tr></table></figure>
+<h3 id="11-消除transition闪屏问题"><a href="#11-消除transition闪屏问题" class="headerlink" title="11. 消除transition闪屏问题"></a>11. 消除transition闪屏问题</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*设置内嵌的元素在 3D 空间如何呈现：保留 3D*/</span></div><div class="line"><span class="selector-tag">-webkit-transform-style</span>: <span class="selector-tag">preserve-3d</span>;</div><div class="line"><span class="comment">/*(设置进行转换的元素的背面在面对用户时是否可见：隐藏)*/</span> </div><div class="line"><span class="selector-tag">-webkit-backface-visibility</span>: <span class="selector-tag">hidden</span>;</div></pre></td></tr></table></figure>
+<h3 id="12-IOS系统中文输入法输入英文时，字母之间可能会出现一个六分之一的空格"><a href="#12-IOS系统中文输入法输入英文时，字母之间可能会出现一个六分之一的空格" class="headerlink" title="12. IOS系统中文输入法输入英文时，字母之间可能会出现一个六分之一的空格"></a>12. IOS系统中文输入法输入英文时，字母之间可能会出现一个六分之一的空格</h3><p>解决方案：通过正则去除</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">this</span>.value = <span class="keyword">this</span>.value.replace(<span class="regexp">/\u2006/g</span>, <span class="string">''</span>);</div></pre></td></tr></table></figure>
+<h3 id="13-禁止IOS和Android用户选中文字"><a href="#13-禁止IOS和Android用户选中文字" class="headerlink" title="13. 禁止IOS和Android用户选中文字"></a>13. 禁止IOS和Android用户选中文字</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">-webkit-user-select</span>: <span class="selector-tag">none</span>;</div></pre></td></tr></table></figure>
+<h3 id="14-CSS动画页面闪白-动画卡顿"><a href="#14-CSS动画页面闪白-动画卡顿" class="headerlink" title="14. CSS动画页面闪白,动画卡顿"></a>14. CSS动画页面闪白,动画卡顿</h3><p>解决方法:<br>1.尽可能地使用合成属性transform和opacity来设计CSS3动画，不使用position的left和top来定位<br>2.开启硬件加速</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">-webkit-transform</span>: <span class="selector-tag">translate3d</span>(0, 0, 0);</div><div class="line">   <span class="selector-tag">-moz-transform</span>: <span class="selector-tag">translate3d</span>(0, 0, 0);</div><div class="line">    <span class="selector-tag">-ms-transform</span>: <span class="selector-tag">translate3d</span>(0, 0, 0);</div><div class="line">        <span class="selector-tag">transform</span>: <span class="selector-tag">translate3d</span>(0, 0, 0);</div></pre></td></tr></table></figure>
+<h3 id="15-input的placeholder会出现文本位置偏上的情况"><a href="#15-input的placeholder会出现文本位置偏上的情况" class="headerlink" title="15.  input的placeholder会出现文本位置偏上的情况"></a>15.  input的placeholder会出现文本位置偏上的情况</h3><p>input 的placeholder会出现文本位置偏上的情况：PC端设置line-height等于height能够对齐，而移动端仍然是偏上，解决是设置line-height：normal</p>
+<h3 id="16-往返缓存问题"><a href="#16-往返缓存问题" class="headerlink" title="16. 往返缓存问题"></a>16. 往返缓存问题</h3><p>点击浏览器的回退，有时候不会自动执行js，特别是在mobilesafari中。这与往返缓存(bfcache)有关系。<br>解决方法 ：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">window</span>.onunload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;;</div></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/15/高级美化对外API说明文档/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -333,7 +491,7 @@
 <p>插件地址：<a href="http://mh.cli.im/js/api.js" target="_blank" rel="external">//mh.cli.im/js/api.js</a></p>
 <p>注意事项：有跨域请求限制，请提供需要支持API的域名（支持通配符）。</p>
 </blockquote>
-<h3 id="调用示例"><a href="#调用示例" class="headerlink" title="调用示例"></a>调用示例</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;script src=<span class="string">"//mh.cli.im/js/api.js"</span>&gt;&lt;/script&gt;</div><div class="line"><span class="keyword">var</span> mhaip = <span class="keyword">new</span> mhapi();</div><div class="line"><span class="keyword">var</span> qrcodeVal = <span class="string">"qrcodeVal"</span>;</div><div class="line">mhaip.init();</div><div class="line">mhaip.open(qrcodeVal,&#123;</div><div class="line">    <span class="string">"open"</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        </div><div class="line">    &#125;,</div><div class="line">    <span class="string">"close"</span>: <span class="function"><span class="keyword">function</span>(<span class="params">base64</span>)</span>&#123;</div><div class="line">        $(<span class="string">"img"</span>).attr(<span class="string">"src"</span>,base64);</div><div class="line">    &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h3 id="调用示例"><a href="#调用示例" class="headerlink" title="调用示例"></a>调用示例</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;script src=<span class="string">"//mh.cli.im/js/api.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div><div class="line"><span class="keyword">var</span> mhaip = <span class="keyword">new</span> mhapi();</div><div class="line"><span class="keyword">var</span> qrcodeVal = <span class="string">"qrcodeVal"</span>;</div><div class="line">mhaip.init();</div><div class="line">mhaip.open(qrcodeVal,&#123;</div><div class="line">    <span class="string">"open"</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        </div><div class="line">    &#125;,</div><div class="line">    <span class="string">"close"</span>: <span class="function"><span class="keyword">function</span>(<span class="params">base64</span>)</span>&#123;</div><div class="line">        $(<span class="string">"img"</span>).attr(<span class="string">"src"</span>,base64);</div><div class="line">    &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
 <h3 id="方法列表"><a href="#方法列表" class="headerlink" title="方法列表"></a>方法列表</h3><table>
 <thead>
 <tr>
@@ -1308,7 +1466,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

@@ -329,7 +329,7 @@
 <p>插件地址：<a href="http://mh.cli.im/js/api.js" target="_blank" rel="external">//mh.cli.im/js/api.js</a></p>
 <p>注意事项：有跨域请求限制，请提供需要支持API的域名（支持通配符）。</p>
 </blockquote>
-<h3 id="调用示例"><a href="#调用示例" class="headerlink" title="调用示例"></a>调用示例</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;script src=<span class="string">"//mh.cli.im/js/api.js"</span>&gt;&lt;/script&gt;</div><div class="line"><span class="keyword">var</span> mhaip = <span class="keyword">new</span> mhapi();</div><div class="line"><span class="keyword">var</span> qrcodeVal = <span class="string">"qrcodeVal"</span>;</div><div class="line">mhaip.init();</div><div class="line">mhaip.open(qrcodeVal,&#123;</div><div class="line">    <span class="string">"open"</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        </div><div class="line">    &#125;,</div><div class="line">    <span class="string">"close"</span>: <span class="function"><span class="keyword">function</span>(<span class="params">base64</span>)</span>&#123;</div><div class="line">        $(<span class="string">"img"</span>).attr(<span class="string">"src"</span>,base64);</div><div class="line">    &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h3 id="调用示例"><a href="#调用示例" class="headerlink" title="调用示例"></a>调用示例</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;script src=<span class="string">"//mh.cli.im/js/api.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div><div class="line"><span class="keyword">var</span> mhaip = <span class="keyword">new</span> mhapi();</div><div class="line"><span class="keyword">var</span> qrcodeVal = <span class="string">"qrcodeVal"</span>;</div><div class="line">mhaip.init();</div><div class="line">mhaip.open(qrcodeVal,&#123;</div><div class="line">    <span class="string">"open"</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        </div><div class="line">    &#125;,</div><div class="line">    <span class="string">"close"</span>: <span class="function"><span class="keyword">function</span>(<span class="params">base64</span>)</span>&#123;</div><div class="line">        $(<span class="string">"img"</span>).attr(<span class="string">"src"</span>,base64);</div><div class="line">    &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
 <h3 id="方法列表"><a href="#方法列表" class="headerlink" title="方法列表"></a>方法列表</h3><table>
 <thead>
 <tr>
@@ -408,6 +408,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2017/10/19/Vue移动端开发的那些坑/" rel="prev" title="Vue移动端开发的那些坑">
+                Vue移动端开发的那些坑 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -483,7 +487,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
