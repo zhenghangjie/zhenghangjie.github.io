@@ -96,13 +96,13 @@
 
 <meta name="description" content="前端技术分享">
 <meta property="og:type" content="website">
-<meta property="og:title" content="耿耿星河欲曙天">
+<meta property="og:title" content="郑杭杰的小站">
 <meta property="og:url" content="http://yoursite.com/index.html">
-<meta property="og:site_name" content="耿耿星河欲曙天">
+<meta property="og:site_name" content="郑杭杰的小站">
 <meta property="og:description" content="前端技术分享">
 <meta property="og:locale" content="zh-Hans">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="耿耿星河欲曙天">
+<meta name="twitter:title" content="郑杭杰的小站">
 <meta name="twitter:description" content="前端技术分享">
 
 
@@ -138,7 +138,7 @@
 
 
 
-  <title>耿耿星河欲曙天</title>
+  <title>郑杭杰的小站</title>
   
 
 
@@ -170,12 +170,12 @@
     <div class="custom-logo-site-title">
       <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">耿耿星河欲曙天</span>
+        <span class="site-title">郑杭杰的小站</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
       
-        <p class="site-subtitle">耿耿星河欲曙天</p>
+        <p class="site-subtitle">郑杭杰的小站</p>
       
   </div>
 
@@ -257,6 +257,339 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/16/前端开箱即用解决方案/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhenghangjie">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="郑杭杰的小站">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/09/16/前端开箱即用解决方案/" itemprop="url">前端技术分享讲稿（注重细节克服瓶颈）</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-16T23:08:11+08:00">
+                2019-09-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h2><ul>
+<li><strong>最佳实践</strong>：良好的工程实践助你持续产出高质量代码</li>
+<li><strong>Mock 数据</strong>：实用的本地数据调试方案（支持mockjs随机数据语法）</li>
+<li><strong>UI 测试</strong>：自动化测试保障前端产品质量（jest + puppeteer）</li>
+<li><strong>代码规范校验</strong>：收敛lint规则配置到vbuilder统一管理，全站统一校验规则<a href="https://gitlab.vdian.net/fe-workflow/fabric/blob/master/eslint.js" target="_blank" rel="external">eslint</a> / <a href="https://gitlab.vdian.net/fe-workflow/fabric/blob/master/stylelint.js" target="_blank" rel="external">stylelint</a></li>
+</ul>
+<h2 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h2><figure class="highlight markdown"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line"><span class="bullet">- </span>pages/ （入口，必须命名为 pages）</div><div class="line">  - index/ 首页（页面名称，可修改）</div><div class="line">  - index.html</div><div class="line">  - index.js（入口文件，且必须命名为 index.js）</div><div class="line">  - index.less</div><div class="line">  - router.js（路由配置文件）</div><div class="line"><span class="code">      - pages/route/ 路由</span></div><div class="line"><span class="code">      - index.vue (路由入口)</span></div><div class="line"><span class="code">      - index.less (页面样式)</span></div><div class="line"></div><div class="line"><span class="bullet">- </span>components/ (组件文件夹）</div><div class="line">  - common/ (基础组件)</div><div class="line">  - route/ (业务组件)</div><div class="line">  - index.js (组件注册入口)</div><div class="line">  ...</div><div class="line"></div><div class="line"><span class="bullet">- </span>common/</div><div class="line"><span class="code">    - config/ (静态配置)</span></div><div class="line"><span class="code">      - index.js (通用变量配置)</span></div><div class="line"><span class="code">      - index.less (less 变量配置)</span></div><div class="line"><span class="code">	- helper/ (组件级别方法 公用 filter 等)</span></div><div class="line"><span class="code">		- index.js</span></div><div class="line"><span class="code">	- icon/ (图标管理)</span></div><div class="line"><span class="code">		- index.less</span></div><div class="line"><span class="code">    - reset/</span></div><div class="line"><span class="code">		- index.less (覆盖全局样式)</span></div><div class="line"><span class="code">    - util/ (项目级别工具库)</span></div><div class="line"><span class="code">    	- index.js</span></div><div class="line"><span class="code">    	- index.less (样式工具函数)</span></div><div class="line"><span class="code">    	</span></div><div class="line"><span class="bullet">- </span>assets/ (图片存放)</div><div class="line"><span class="code">	- icon/ (图标)</span></div><div class="line"><span class="code">	- images/ </span></div><div class="line"></div><div class="line"><span class="bullet">- </span>plugins/ (存放第三方或者自定义插件)</div></pre></td></tr></table></figure>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/* package.json */</span></div><div class="line"></div><div class="line"><span class="string">"husky"</span>: &#123;</div><div class="line">    <span class="string">"hooks"</span>: &#123;</div><div class="line">      <span class="string">"pre-commit"</span>: <span class="string">"lint-staged"</span></div><div class="line">    &#125;</div><div class="line">&#125;,</div><div class="line"><span class="string">"lint-staged"</span>: &#123;</div><div class="line">    <span class="string">"**/*.&#123;html,js,vue,less,css,json&#125;"</span>: [</div><div class="line">      <span class="string">"prettier --config .prettierrc --write '**/*.&#123;html,js,less,css,json&#125;'"</span>,</div><div class="line">      <span class="string">"v lint"</span>,</div><div class="line">      <span class="string">"git add"</span></div><div class="line">    ]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>.prettierrc为项目中自定义样式配置，v lint执行时自动读取vbuilder中统一lint规则校验代码</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/* Mock */</span></div><div class="line">&#123;</div><div class="line">  <span class="string">"status"</span>: &#123;</div><div class="line">    <span class="string">"code"</span>: <span class="number">0</span>,</div><div class="line">    <span class="string">"message"</span>: <span class="string">"OK"</span>,</div><div class="line">    <span class="string">"description"</span>: <span class="string">""</span></div><div class="line">  &#125;,</div><div class="line">  <span class="string">"result"</span>: &#123;</div><div class="line">    <span class="string">"address"</span>: <span class="string">"@province - @county"</span>,</div><div class="line">    <span class="string">"cparagraph"</span>: <span class="string">"@cparagraph"</span>,</div><div class="line">    <span class="string">"boolean"</span>: <span class="string">"@boolean"</span>,</div><div class="line">    <span class="string">"integer"</span>: <span class="string">"@integer(0, 100)"</span>,</div><div class="line">    <span class="string">"float"</span>: <span class="string">"@float(0, 100, 3)"</span>,</div><div class="line">    <span class="string">"sentence"</span>: <span class="string">"@sentence"</span></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>v mock新增功能，可解析mockjs语法生成随机内容（应用于各种边界条件测试），访问对应mock资源后会在相同目录下生成*-result.json作为访问结果文件（用于追溯上一次请求的数据结果）</p>
+</blockquote>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">	<span class="attr">"proxy"</span>: <span class="literal">true</span>,</div><div class="line">	<span class="attr">"host"</span>: <span class="string">"thor.pre.weidian.com"</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">v mock-add /poseidon/exhibit.spaceJson/1.0</div></pre></td></tr></table></figure>
+<blockquote>
+<p>Mock Server读取项目根目录配置（.mockrc） 增加是否代理到其他环境选项（proxy开启后 server读取项目中mock文件，读取不到的情况下转发对应host接口结果返回）<br>新增mock-add [path] 命令 快速创建mock文件</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/* .gitignore */</span></div><div class="line">mock<span class="comment">/*-result.json</span></div><div class="line"><span class="comment">lint-result/</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>gitignore新增如上配置，lint-result为v lint校验后生成的报表文件，*-result.json为模拟数据结果文件</p>
+</blockquote>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">自动化测试 jest+puppeteer</div><div class="line"></div><div class="line"><span class="bullet">- </span>网页截图</div><div class="line"><span class="bullet">- </span>自动化表单提交，UI测试，键盘输入等</div><div class="line"><span class="bullet">- </span>创建一个最新的自动化测试环境，兼容性</div><div class="line"><span class="bullet">- </span>捕获网站的时间线，帮助诊断性能问题</div></pre></td></tr></table></figure>
+<h2 id="如何在项目中应用"><a href="#如何在项目中应用" class="headerlink" title="如何在项目中应用"></a>如何在项目中应用</h2><ul>
+<li>新项目直接v init 初始化项目即可使用</li>
+<li>老项目可应用新升级后的 v mock / v lint 命令</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div><div class="line">## vscode插件相关（建议安装）</div><div class="line"></div><div class="line">- Code Spell Checker</div><div class="line">- Eslint</div><div class="line">- Prettier</div><div class="line">- stylelint</div><div class="line">- Vue 2 Snippets</div><div class="line">- vetur</div><div class="line"></div><div class="line">​```json</div><div class="line">/* vscode相关配置 */</div><div class="line">&quot;eslint.options&quot;: &#123;</div><div class="line">  &quot;extensions&quot;: [&quot;.js&quot;, &quot;.vue&quot;]</div><div class="line">&#125;,</div><div class="line">&quot;eslint.validate&quot;: [</div><div class="line">  &quot;javascript&quot;,</div><div class="line">  &quot;javascriptreact&quot;,</div><div class="line">  &quot;html&quot;,</div><div class="line">  &quot;vue&quot;,</div><div class="line">  &#123;</div><div class="line">    &quot;language&quot;: &quot;html&quot;,</div><div class="line">    &quot;autoFix&quot;: true</div><div class="line">  &#125;,</div><div class="line">  &#123;</div><div class="line">    &quot;language&quot;: &quot;vue&quot;,</div><div class="line">    &quot;autoFix&quot;: true</div><div class="line">  &#125;</div><div class="line">],</div><div class="line">&quot;vetur.format.defaultFormatter.html&quot;: &quot;prettier&quot;,</div><div class="line">&quot;vetur.format.defaultFormatter.css&quot;: &quot;prettier&quot;,</div><div class="line">&quot;vetur.format.defaultFormatter.scss&quot;: &quot;prettier&quot;,</div><div class="line">&quot;vetur.format.defaultFormatter.less&quot;: &quot;prettier&quot;,</div><div class="line">&quot;vetur.format.defaultFormatter.js&quot;: &quot;prettier&quot;,</div><div class="line">&quot;vetur.format.defaultFormatter.ts&quot;: &quot;prettier&quot;,</div><div class="line">&quot;[less]&quot;: &#123;</div><div class="line">  &quot;editor.defaultFormatter&quot;: &quot;esbenp.prettier-vscode&quot;</div><div class="line">&#125;</div><div class="line">&quot;cSpell.userWords&quot;: [</div><div class="line">  &quot;mockjs&quot;,</div><div class="line">  &quot;preconnect&quot;,</div><div class="line">  &quot;prettierrc&quot;,</div><div class="line">  &quot;spmb&quot;,</div><div class="line">  &quot;stylelint&quot;,</div><div class="line">  &quot;vbuilder&quot;,</div><div class="line">  &quot;vdian&quot;,</div><div class="line">  &quot;weidian&quot;,</div><div class="line">],</div><div class="line">&quot;[css]&quot;: &#123;</div><div class="line"></div><div class="line">&quot;editor.defaultFormatter&quot;: &quot;esbenp.prettier-vscode&quot;</div><div class="line"></div><div class="line">&#125;,</div><div class="line"></div><div class="line">&quot;[javascript]&quot;: &#123;</div><div class="line"></div><div class="line">&quot;editor.defaultFormatter&quot;: &quot;esbenp.prettier-vscode&quot;</div><div class="line"></div><div class="line">&#125;,</div><div class="line"></div><div class="line">&quot;[typescript]&quot;: &#123;</div><div class="line"></div><div class="line">&quot;editor.defaultFormatter&quot;: &quot;esbenp.prettier-vscode&quot;</div><div class="line"></div><div class="line">&#125;,</div><div class="line"></div><div class="line">&quot;[json]&quot;: &#123;</div><div class="line"></div><div class="line">&quot;editor.defaultFormatter&quot;: &quot;esbenp.prettier-vscode&quot;</div><div class="line"></div><div class="line">&#125;,</div><div class="line"></div><div class="line">&quot;[jsonc]&quot;: &#123;</div><div class="line"></div><div class="line">&quot;editor.defaultFormatter&quot;: &quot;esbenp.prettier-vscode&quot;</div><div class="line"></div><div class="line">&#125;,</div><div class="line"></div><div class="line">&quot;[less]&quot;: &#123;</div><div class="line"></div><div class="line">&quot;editor.defaultFormatter&quot;: &quot;esbenp.prettier-vscode&quot;</div><div class="line"></div><div class="line">&#125;,</div><div class="line"></div><div class="line">&quot;[vue]&quot;: &#123;</div><div class="line"></div><div class="line">&quot;editor.defaultFormatter&quot;: &quot;octref.vetur&quot;</div><div class="line"></div><div class="line">&#125;,</div><div class="line"></div><div class="line">&quot;javascript.updateImportsOnFileMove.enabled&quot;: &quot;always&quot;,</div><div class="line"></div><div class="line">&quot;[html]&quot;: &#123;</div><div class="line"></div><div class="line">&quot;editor.defaultFormatter&quot;: &quot;esbenp.prettier-vscode&quot;</div><div class="line"></div><div class="line">&#125;,</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/03/搭建服务生成的组件如何后期维护迭代/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhenghangjie">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="郑杭杰的小站">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/07/03/搭建服务生成的组件如何后期维护迭代/" itemprop="url">前端技术分享讲稿（注重细节克服瓶颈）</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-03T14:48:32+08:00">
+                2019-07-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="搭建服务生成的组件如何后期维护迭代"><a href="#搭建服务生成的组件如何后期维护迭代" class="headerlink" title="搭建服务生成的组件如何后期维护迭代"></a>搭建服务生成的组件如何后期维护迭代</h2><h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>正常情况下，搭建服务生成的页面或组件，或满足于快速产出试错，满足时效性，若涉及到频繁后期维护是需要独立开发的。但针对特殊场景，需要修改到元组件的数据结构，那么如何进行处理呢？以下根据一个实际场景来探索。</p>
+<h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p>店铺设计师开放平台提供设计师可以编辑拖拽模块生成装修皮肤的功能，比如现有如下真实需求（商品单行标题改为多行）</p>
+<p><img src="https://si.geilicdn.com/img-7a5e0000016b91f495540a20b7b9-unadjust_776_840.png?w=200&amp;h=200&amp;cp=1" alt="图"> （期望效果） =&gt;   <img src="https://si.geilicdn.com/img-44f10000016b92c5f3060a21167e-unadjust_782_988.png?w=200&amp;h=200&amp;cp=1" alt="图"></p>
+<blockquote>
+<p>在这个模块的设计规范中，<strong>价格</strong>和<strong>商品标题</strong>都支持拖拽（绝对布局），商品区块的整体<strong>高度</strong>，标题的<strong>高度</strong>都支持自定义。倘若只修改了商品标题行数，会有如下影响：</p>
+</blockquote>
+<p><img src="https://si.geilicdn.com/img-34ca0000016bb5d57eaf0a211580-unadjust_732_848.png?w=150&amp;h=200&amp;cp=1" alt="图"><img src="https://si.geilicdn.com/img-65220000016bb5d5cd020a217205-unadjust_374_452.png?w=200&amp;h=200&amp;cp=1" alt="图"><img src="https://si.geilicdn.com/img-3b480000016b933613de0a211580-unadjust_770_860.png?w=150&amp;h=200&amp;cp=1" alt="图"><img src="https://si.geilicdn.com/img-60890000016b9352a7b90a21924b-unadjust_914_648.png?w=150&amp;h=200" alt="图"></p>
+<blockquote>
+<ul>
+<li>整体区块带边框（左一）</li>
+<li>标题区块无固定高度（左二）</li>
+<li>价格区间绝对布局，导致展示异常（右二）</li>
+<li>标题高度设置不够，改为两行后展示不完整（最右）</li>
+</ul>
+<p>emmm..唯一的解决办法那就是 <strong>洗库</strong> ！</p>
+</blockquote>
+<hr>
+<h2 id="技术方案"><a href="#技术方案" class="headerlink" title="技术方案"></a>技术方案</h2><blockquote>
+<p>大致方案分三步骤：<strong>校验</strong> -&gt; <strong>更新数据</strong> -&gt; <strong>测试</strong></p>
+<ol>
+<li>针对特定模块逻辑校验存储的模块皮肤数据的数据结构是否正确（存在脏数据以及多种设计规范的存在）</li>
+<li>批量更新数据库操作</li>
+<li>针对特定模块写自动化测试脚本 保证线上数据一致</li>
+</ol>
+</blockquote>
+<hr>
+<h2 id="模块皮肤数据存储格式"><a href="#模块皮肤数据存储格式" class="headerlink" title="模块皮肤数据存储格式"></a>模块皮肤数据存储格式</h2><p><img src="https://si.geilicdn.com/img-18930000016b93729fe80a219248-unadjust_3162_1276.png" alt="图"> </p>
+<blockquote>
+<p><a href="https://gitlab.vdian.net/decoration/open-modules/blob/master/src/item-advanced/tpt/three-columns.js" target="_blank" rel="external">数据规范Gitlab</a></p>
+</blockquote>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line">comId: 'item-advanced',</div><div class="line">tptId: 'album-slider',</div><div class="line">...</div><div class="line">// 区块扩展字段，可编辑/版本1</div><div class="line">extends: &#123;</div><div class="line">  version: 1,</div><div class="line">  editable: true,</div><div class="line">&#125;,</div><div class="line">...</div><div class="line">nodes: [&#123;</div><div class="line">    type: 'item',</div><div class="line">  	style: &#123;</div><div class="line">        height: '351px', // 父容器高度 =&gt; 加上标题增加的高度 height += distance</div><div class="line">    &#125;,</div><div class="line">    nodes: [&#123;</div><div class="line">        type: 'img',</div><div class="line">        ...</div><div class="line">    &#125;,&#123;</div><div class="line">        type: 'img',</div><div class="line">        ...</div><div class="line">    &#125;,&#123;</div><div class="line">        type: 'img',</div><div class="line">        ...</div><div class="line">    &#125;,&#123;</div><div class="line">        type: 'txt',</div><div class="line">        style: &#123;</div><div class="line">          height: '32px', // 标题高度 =&gt; 改为两行  height *= 2 / distance = height</div><div class="line">          WebkitLineClamp: 1, // 标题省略行数 =&gt; 改为2行</div><div class="line">          ...</div><div class="line">        &#125;,</div><div class="line">        ...</div><div class="line">    &#125;,&#123;</div><div class="line">        type: 'cell',</div><div class="line">        style: &#123;</div><div class="line">          position: 'absolute',</div><div class="line">          top: '298px', // 价格距离容器顶部距离 =&gt; 加上标题增加的高度 top += distance</div><div class="line">          ...</div><div class="line">        &#125;,</div><div class="line">    &#125;]</div><div class="line">&#125;]</div></pre></td></tr></table></figure>
+<p>####初步方案<br>&gt;</p>
+<blockquote>
+<ul>
+<li>校验存储的json数据结构是否符合当前设计规范</li>
+<li>校验标题节点[txt]和价格节点[cell]是否并列存在</li>
+</ul>
+<ul>
+<li>找到标题节点，在当前用户设置的高度基础上乘2，WebkitLineClamp属性设置为2</li>
+<li>找到价格节点，在当前的top属性下增加标题改变的单行高度</li>
+<li>找到父容器节点，设置高度为标题改变的单行高度</li>
+</ul>
+</blockquote>
+<h2 id="数据校验更新操作"><a href="#数据校验更新操作" class="headerlink" title="数据校验更新操作"></a>数据校验更新操作</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 先处理三列式模块 tptId = 'three-columns'</span></div><div class="line"><span class="keyword">try</span> &#123;</div><div class="line">  <span class="keyword">const</span> modules = <span class="keyword">await</span> client(<span class="string">"module"</span>)</div><div class="line">  .leftJoin(<span class="string">"skin"</span>, <span class="string">"module.skin_id"</span>, <span class="string">"skin.id"</span>)</div><div class="line">  .select(<span class="string">"module.data"</span>, <span class="string">"module.id"</span>)</div><div class="line">  .where(&#123;</div><div class="line">    <span class="string">"module.com_id"</span>: <span class="string">"item-advanced"</span>,</div><div class="line">    <span class="string">"module.tpt_id"</span>: param.tptId</div><div class="line">  &#125;)</div><div class="line">  .andWhere(<span class="string">"skin.status"</span>, <span class="string">"&gt;"</span>, <span class="number">-1</span>)</div><div class="line">  .limit(<span class="number">1000</span>);</div><div class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> <span class="built_in">module</span> <span class="keyword">of</span> modules) &#123;</div><div class="line">    <span class="keyword">if</span> (<span class="built_in">module</span>.data) &#123;</div><div class="line">      <span class="keyword">switch</span> (param.tptId) &#123;</div><div class="line">        <span class="keyword">case</span> <span class="string">"three-columns"</span>:</div><div class="line">          patchThreeColunms(	<span class="comment">// 调用patchThreeColunms方法</span></div><div class="line">            <span class="built_in">JSON</span>.parse(<span class="built_in">module</span>.data),</div><div class="line">            <span class="built_in">module</span>.id</div><div class="line">          );</div><div class="line">          <span class="keyword">break</span>;</div><div class="line">          ...</div><div class="line">      &#125;</div><div class="line">      <span class="comment">// 更新数据库</span></div><div class="line">      <span class="built_in">module</span>.data = patchThreeColunms(<span class="built_in">JSON</span>.parse(<span class="built_in">module</span>.data), <span class="built_in">module</span>.id)</div><div class="line">      <span class="keyword">await</span> client(<span class="string">'module'</span>).update(&#123; <span class="attr">data</span>: <span class="built_in">module</span>.data &#125;).where(&#123; <span class="attr">id</span>: <span class="built_in">module</span>.id &#125;)</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125; <span class="keyword">catch</span> (e) &#123;</div><div class="line">  <span class="built_in">console</span>.log(e);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// patchThreeColunms校验整体皮肤数据是否符合规则，可批量更新</span></div><div class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">patchThreeColunms</span>(<span class="params">obj, moduleId</span>)</span>&#123;</div><div class="line">    <span class="keyword">let</span> condition = []</div><div class="line">    <span class="keyword">try</span> &#123;</div><div class="line">        condition = [</div><div class="line">            obj.comId == <span class="string">'item-advanced'</span>,</div><div class="line">            obj.tptId == <span class="string">'three-columns'</span>,</div><div class="line">            obj.nodes.length == <span class="number">2</span>,</div><div class="line">            obj.nodes[<span class="number">1</span>].type == <span class="string">'list'</span>,</div><div class="line">            obj.nodes[<span class="number">1</span>].nodes.length == <span class="number">1</span>,</div><div class="line">            obj.nodes[<span class="number">1</span>].nodes[<span class="number">0</span>].type == <span class="string">'item'</span>,</div><div class="line">            <span class="comment">// 整体商品区块高度</span></div><div class="line">            reg.test(obj.nodes[<span class="number">1</span>].nodes[<span class="number">0</span>].style.height),</div><div class="line">            obj.nodes[<span class="number">1</span>].nodes[<span class="number">0</span>].nodes.length &gt; <span class="number">2</span>,</div><div class="line">            textAndCellFilter(obj.nodes[<span class="number">1</span>].nodes[<span class="number">0</span>].nodes),</div><div class="line">        ]</div><div class="line">    &#125; <span class="keyword">catch</span> (error) &#123;</div><div class="line">        condition = [<span class="literal">false</span>]</div><div class="line">    &#125;</div><div class="line">    condition = condition.map(<span class="function"><span class="params">item</span> =&gt;</span> <span class="built_in">Boolean</span>(item))</div><div class="line">    <span class="keyword">if</span>(</div><div class="line">        [...new <span class="built_in">Set</span>(condition)].length == <span class="number">1</span> &amp;&amp;</div><div class="line">        [...new <span class="built_in">Set</span>(condition)][<span class="number">0</span>]</div><div class="line">    ) &#123;</div><div class="line">        <span class="keyword">const</span> txtIndex = <span class="built_in">Number</span>(textAndCellFilter(obj.nodes[<span class="number">1</span>].nodes[<span class="number">0</span>].nodes))</div><div class="line">        <span class="keyword">const</span> distance = getPxValue(obj.nodes[<span class="number">1</span>].nodes[<span class="number">0</span>].nodes[txtIndex].style.height)</div><div class="line">        <span class="keyword">const</span> itemHeight = getPxValue(obj.nodes[<span class="number">1</span>].nodes[<span class="number">0</span>].style.height)</div><div class="line">        <span class="keyword">const</span> cellPriceTop = getPxValue(obj.nodes[<span class="number">1</span>].nodes[<span class="number">0</span>].nodes[txtIndex + <span class="number">1</span>].style.top)</div><div class="line">        </div><div class="line">        obj.nodes[<span class="number">1</span>].nodes[<span class="number">0</span>].style.height = <span class="string">`<span class="subst">$&#123;itemHeight + distance&#125;</span>px`</span></div><div class="line">        obj.nodes[<span class="number">1</span>].nodes[<span class="number">0</span>].nodes[txtIndex].style.height = <span class="string">`<span class="subst">$&#123;distance * <span class="number">2</span>&#125;</span>px`</span></div><div class="line">        obj.nodes[<span class="number">1</span>].nodes[<span class="number">0</span>].nodes[txtIndex].style.WebkitLineClamp = <span class="number">2</span></div><div class="line">        obj.nodes[<span class="number">1</span>].nodes[<span class="number">0</span>].nodes[txtIndex + <span class="number">1</span>].style.top = <span class="string">`<span class="subst">$&#123;cellPriceTop + distance&#125;</span>px`</span></div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        logger.debug(<span class="string">`<span class="subst">$&#123;obj.tptId&#125;</span>匹配失败的ModuleId: <span class="subst">$&#123;moduleId&#125;</span>`</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="built_in">JSON</span>.stringify(obj)</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 验证标题和价格区块是否并列存在，价格区块是否可拖拽</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">textAndCellFilter</span>(<span class="params">arr</span>)</span>&#123;</div><div class="line">    <span class="keyword">let</span> txtIndex = <span class="literal">false</span></div><div class="line">    arr.forEach(<span class="function">(<span class="params">element, index</span>) =&gt;</span> &#123;</div><div class="line">        <span class="keyword">if</span>(</div><div class="line">            element.type == <span class="string">'txt'</span> &amp;&amp;</div><div class="line">            reg.test(element.style.height) &amp;&amp;</div><div class="line">            arr[index + <span class="number">1</span>].type == <span class="string">'cell'</span> &amp;&amp;</div><div class="line">          	arr[index + <span class="number">1</span>].extends.editable &amp;&amp;</div><div class="line">            reg.test(arr[index + <span class="number">1</span>].style.top)</div><div class="line">        ) &#123;</div><div class="line">            txtIndex = index</div><div class="line">            <span class="keyword">return</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;)</div><div class="line">    <span class="keyword">return</span> txtIndex</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getPxValue</span>(<span class="params">param</span>)</span>&#123;</div><div class="line">    <span class="keyword">if</span>(param)&#123;</div><div class="line">        <span class="keyword">return</span> <span class="built_in">Number</span>(param.match(reg)[<span class="number">1</span>])</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        <span class="keyword">return</span> <span class="number">0</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>根据校验规则替换完数据后，涉及到400+个皮肤，那么自动化测试是必不可少的</p>
+</blockquote>
+<p>##自动化测试</p>
+<p>自动化UI测试的原理就是模拟用户访问指定url，操作滚动条获取到某个固定节点位置，截图写文件。</p>
+<blockquote>
+<p>测试工具选取的是<a href="https://github.com/segmentio/nightmare" target="_blank" rel="external">nightmare</a>，可能有些同学会更熟悉<a href="https://github.com/GoogleChrome/puppeteer" target="_blank" rel="external">puppeteer</a>。都是headless-chrome的原理，功能点也差不多。直接上代码：</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// main</span></div><div class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">"fs"</span>);</div><div class="line"><span class="keyword">const</span> autoTest = <span class="built_in">require</span>(<span class="string">"./autoTest"</span>);</div><div class="line"></div><div class="line"><span class="keyword">const</span> content = fs.readFileSync(<span class="string">"skinId.txt"</span>, <span class="string">"utf8"</span>);</div><div class="line"><span class="keyword">let</span> arr = content.split(<span class="string">"\n"</span>);</div><div class="line"></div><div class="line">(<span class="keyword">async</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">const</span> skin <span class="keyword">of</span> arr) &#123;</div><div class="line">        <span class="keyword">await</span> autoTest(&#123;</div><div class="line">            website: <span class="string">`http://shop.pre.weidian.com/?userid=273436415&amp;skin=<span class="subst">$&#123;skin&#125;</span>&amp;preview=true`</span>,</div><div class="line">            diskPath: <span class="string">"./images/"</span>,</div><div class="line">            skinId: skin,</div><div class="line">            sectionId: <span class="number">1301</span>,</div><div class="line">            viewport: &#123;</div><div class="line">                w: <span class="number">400</span>,</div><div class="line">                h: <span class="number">2200</span></div><div class="line">            &#125;</div><div class="line">        &#125;)</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'done'</span>)</div><div class="line">&#125;())</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * 自动化测试</span></div><div class="line"><span class="comment"> * @param  &#123;[type]&#125; config     [description]</span></div><div class="line"><span class="comment"> * @return &#123;[type]&#125;         [description]</span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="keyword">const</span> Nightmare = <span class="built_in">require</span>(<span class="string">"nightmare"</span>);</div><div class="line"><span class="keyword">const</span> log4js = <span class="built_in">require</span>(<span class="string">"log4js"</span>);</div><div class="line"><span class="keyword">const</span> logger = log4js.getLogger();</div><div class="line"></div><div class="line">logger.level = <span class="string">"debug"</span>;</div><div class="line"></div><div class="line"><span class="built_in">module</span>.exports = autoTest = <span class="keyword">async</span> (config) =&gt; &#123;</div><div class="line">    <span class="comment">/**</span></div><div class="line"><span class="comment">     * 滚动屏幕自定义事件</span></div><div class="line"><span class="comment">     */</span></div><div class="line">    Nightmare.action(<span class="string">"elTopDistance"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">selector, done</span>) </span>&#123;</div><div class="line">        <span class="keyword">this</span>.evaluate_now(</div><div class="line">            selector =&gt; &#123;</div><div class="line">                <span class="keyword">const</span> el = <span class="built_in">document</span>.querySelector(selector);</div><div class="line">                <span class="keyword">const</span> top =</div><div class="line">                    el.getBoundingClientRect() &amp;&amp; el.getBoundingClientRect().top;</div><div class="line">                <span class="keyword">return</span> &#123;</div><div class="line">                    top</div><div class="line">                &#125;;</div><div class="line">            &#125;,</div><div class="line">            done,</div><div class="line">            selector</div><div class="line">        );</div><div class="line">    &#125;);</div><div class="line">    </div><div class="line">    <span class="keyword">let</span> nm = Nightmare(&#123;</div><div class="line">        <span class="comment">// show: true</span></div><div class="line">    &#125;);</div><div class="line">    <span class="comment">/**</span></div><div class="line"><span class="comment">     * 获取配置访问并输出图片</span></div><div class="line"><span class="comment">     * @return &#123;[type]&#125;         [description]</span></div><div class="line"><span class="comment">     */</span></div><div class="line">    <span class="keyword">const</span> autoScreenshot = <span class="keyword">async</span> () =&gt; &#123;</div><div class="line">        <span class="keyword">let</span> top;</div><div class="line">        <span class="keyword">await</span> nm</div><div class="line">            .viewport(config.viewport.w, config.viewport.h)</div><div class="line">            .goto(config.website)</div><div class="line">            .wait(<span class="string">`[data-section-id = '<span class="subst">$&#123;config.sectionId&#125;</span>']`</span>)</div><div class="line">            .elTopDistance(<span class="string">`[data-section-id = '<span class="subst">$&#123;config.sectionId&#125;</span>']`</span>)</div><div class="line">            .then(<span class="function"><span class="params">size</span> =&gt;</span> &#123;</div><div class="line">                top = size.top;</div><div class="line">            &#125;);</div><div class="line">        <span class="keyword">await</span> logger.debug(top);</div><div class="line">        <span class="keyword">await</span> outTime(<span class="built_in">Number</span>(top));</div><div class="line">        <span class="comment">// await nm.wait(1000);</span></div><div class="line">        <span class="keyword">await</span> nm.screenshot(<span class="string">`<span class="subst">$&#123;config.diskPath&#125;</span><span class="subst">$&#123;config.skinId&#125;</span>.png`</span>);</div><div class="line">        <span class="keyword">await</span> close();</div><div class="line">    &#125;;</div><div class="line">    </div><div class="line">    <span class="comment">/**</span></div><div class="line"><span class="comment">     * 滚动间隔时间控制</span></div><div class="line"><span class="comment">     * @param  &#123;[type]&#125; pos     [description]</span></div><div class="line"><span class="comment">     * @param  &#123;Number&#125; timeout [description]</span></div><div class="line"><span class="comment">     * @return &#123;[type]&#125;         [description]</span></div><div class="line"><span class="comment">     */</span></div><div class="line">    <span class="keyword">const</span> outTime = <span class="function">(<span class="params">pos, timeout = <span class="number">500</span></span>) =&gt;</span> &#123;</div><div class="line">        <span class="keyword">return</span> <span class="built_in">Promise</span>.all([</div><div class="line">            nm.scrollTo(pos, <span class="number">0</span>),</div><div class="line">            <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</div><div class="line">                setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">                    resolve();</div><div class="line">                &#125;, timeout);</div><div class="line">            &#125;)</div><div class="line">        ]);</div><div class="line">    &#125;;</div><div class="line">    </div><div class="line">    <span class="comment">/**</span></div><div class="line"><span class="comment">     * 关闭</span></div><div class="line"><span class="comment">     * @return &#123;[type]&#125; [description]</span></div><div class="line"><span class="comment">     */</span></div><div class="line">    <span class="keyword">const</span> close = <span class="keyword">async</span> () =&gt; &#123;</div><div class="line">        logger.debug(<span class="string">"运行结束,关闭窗口!"</span>);</div><div class="line">        <span class="keyword">await</span> nm.end();</div><div class="line">    &#125;;</div><div class="line">    </div><div class="line">    <span class="keyword">await</span> autoScreenshot();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>批量生成对应模块截图，交由视觉测试验证</p>
+</blockquote>
+<p><img src="https://si.geilicdn.com/img-7e630000016bb6d3f67f0a21167e-unadjust_800_4356.png?w=300&amp;h=300&amp;cp=1" alt=""><img src="https://si.geilicdn.com/img-09670000016bb6d06b2d0a217252-unadjust_816_714.png?w=300" alt=""></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ul>
+<li>数据校验规则与清洗没有想象中容易，比如用户的骚操作，使得数据结构并不符合预期的规则。</li>
+<li>校验规则需要不断优化完善，其中还涉及到多次备份数据回滚，特别是线上库一定要慎重。</li>
+<li>数据校验规则并不能覆盖所有的场景，最优可能能达到95%-99%的准确率，剩余的特殊模块要手动操作。</li>
+<li>UI测试脚本跑出来的截图发现问题也需要手动处理。</li>
+<li>日志记录异常数据非常重要，以免出现漏网之鱼。</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/01/数据平台构建分享/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -266,7 +599,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="耿耿星河欲曙天">
+      <meta itemprop="name" content="郑杭杰的小站">
     </span>
 
     
@@ -402,7 +735,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="耿耿星河欲曙天">
+      <meta itemprop="name" content="郑杭杰的小站">
     </span>
 
     
@@ -530,7 +863,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="耿耿星河欲曙天">
+      <meta itemprop="name" content="郑杭杰的小站">
     </span>
 
     
@@ -688,7 +1021,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="耿耿星河欲曙天">
+      <meta itemprop="name" content="郑杭杰的小站">
     </span>
 
     
@@ -851,7 +1184,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="耿耿星河欲曙天">
+      <meta itemprop="name" content="郑杭杰的小站">
     </span>
 
     
@@ -994,7 +1327,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="耿耿星河欲曙天">
+      <meta itemprop="name" content="郑杭杰的小站">
     </span>
 
     
@@ -1158,7 +1491,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="耿耿星河欲曙天">
+      <meta itemprop="name" content="郑杭杰的小站">
     </span>
 
     
@@ -1291,7 +1624,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="耿耿星河欲曙天">
+      <meta itemprop="name" content="郑杭杰的小站">
     </span>
 
     
@@ -1404,289 +1737,13 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/08/15/FECS -- 百度前端代码风格工具套件/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="zhenghangjie">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="耿耿星河欲曙天">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2016/08/15/FECS -- 百度前端代码风格工具套件/" itemprop="url">FECS -- 百度前端代码风格工具套件</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-08-15T11:20:38+08:00">
-                2016-08-15
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <hr>
-<p>FECS 是基于 Node.js 的前端代码风格工具套件，包含对 <strong>JavaScript</strong>、<strong>CSS</strong> 与 <strong>HTML</strong> 的检查及格式化。</p>
-<blockquote>
-<ul>
-<li>安装FECS以及sublime插件</li>
-<li>代码检查</li>
-<li>代码格式化<br><a href="https://github.com/ecomfe/fecs/wiki" target="_blank" rel="external">官方github说明</a></li>
-</ul>
-</blockquote>
-<h3 id="Mac下FECS以及sublime插件安装说明"><a href="#Mac下FECS以及sublime插件安装说明" class="headerlink" title="Mac下FECS以及sublime插件安装说明"></a><a href="http://fecs.baidu.com/api" target="_blank" rel="external">Mac下FECS以及sublime插件安装说明</a></h3><figure class="highlight cmd"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ [sudo] npm install fecs -g</div><div class="line"></div><div class="line">//没了..就是那么简单</div><div class="line">//fecs -v能看到版本就是安装成功了</div></pre></td></tr></table></figure>
-<blockquote>
-<p>接下来我们来装sublime插件(<strong><a href="https://github.com/leeight/Baidu-FE-Code-Style" target="_blank" rel="external">Baidu-FE-Code-Style（下载地址）</a></strong>，也可以直接使用命令)<br><figure class="highlight cmd"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> ~/Library/Application\ Support/Sublime\ Text\ <span class="number">2</span>/Packages/</div><div class="line">git clone https://github.com/leeight/Baidu-FE-Code-Style.git</div><div class="line">chmod -R <span class="number">777</span> Baidu-FE-Code-Style/</div><div class="line"></div><div class="line">//一定要开读写权限，<span class="number">755</span>就够了</div></pre></td></tr></table></figure></p>
-<p>装完插件记得配置node和fecs的环境变量 <code>Preferences</code> -&gt; <code>Package Settings</code> -&gt; <code>Baidu-FE-Code-Style</code> -&gt; <code>Settings -User</code>。<br><figure class="highlight cmd"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  "env": &#123;</div><div class="line">    "fecs_bin": "/usr/local/bin/fecs",</div><div class="line">    "node_bin": "/usr/local/bin/node"</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">//填写系统路径</div></pre></td></tr></table></figure></p>
-</blockquote>
-<hr>
-<h3 id="FECS的代码检查功能"><a href="#FECS的代码检查功能" class="headerlink" title="FECS的代码检查功能"></a><a href="https://github.com/ecomfe/fecs/wiki/Check" target="_blank" rel="external">FECS的代码检查功能</a></h3><figure class="highlight cmd"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$ fecs check [target...]</div><div class="line"></div><div class="line">$ fecs check [target...] --<span class="built_in">type</span>=js,css</div><div class="line"></div><div class="line">$ fecs check [target...] --<span class="built_in">type</span>=html</div><div class="line"></div><div class="line">//[target...]为目录名称</div></pre></td></tr></table></figure>
-<p>结果<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">以上省略一万行...</div><div class="line">fecs ERROR → line 134, col 2: Newline required at end of file but not found. //书写不规范的地方</div><div class="line">fecs  INFO Linter found 24,517 errors in 93 of 100 files.</div><div class="line">//文件数、错误数</div><div class="line">fecs@0.8.4: 8216ms //耗时</div></pre></td></tr></table></figure></p>
-<hr>
-<h3 id="FECS的代码格式化功能"><a href="#FECS的代码格式化功能" class="headerlink" title="FECS的代码格式化功能"></a><a href="https://github.com/ecomfe/fecs/wiki/Format" target="_blank" rel="external">FECS的代码格式化功能</a></h3><figure class="highlight cmd"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ fecs <span class="built_in">format</span> [target...]</div><div class="line"></div><div class="line">$ fecs <span class="built_in">format</span> [target...] --<span class="built_in">type</span>=js,css</div><div class="line"></div><div class="line">//[target...]为目录名称</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">//Input</div><div class="line"></div><div class="line">cd /Applications/XAMPP/htdocs/cli-im-new/Fist/static/</div><div class="line">fecs format css --type=css</div></pre></td></tr></table></figure>
-<blockquote>
-<p><strong>$$在当前目录下生成了一个output文件夹，用于存放格式化后的文件$$</strong></p>
-</blockquote>
-<p>百度声明：目前对 HTML 代码的格式化的实现还处于测试阶段，不建议使用时作自定义配置。（所以批量代码格式化功能目前目测只能用于格式化HTML与css，不敢去替换js）</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/08/07/HTML5之文件拖拽上传/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="zhenghangjie">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="耿耿星河欲曙天">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2016/08/07/HTML5之文件拖拽上传/" itemprop="url">HTML5之文件拖拽上传</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-08-07T10:20:38+08:00">
-                2016-08-07
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>标签： 前端、交互</p>
-<hr>
-<blockquote>
-<p>今天某产品经理蹭蹭蹭跑过来说，我们现在项目里对图片、文件上传的交互体验不太好，可不可以实现拖拽上传。<br>然而拖拽要用到HTML5的<strong>Drag</strong>和<strong>drop</strong>属性，并不兼容非现代浏览器。</p>
-</blockquote>
-<hr>
-<blockquote>
-<p>各位前端的同学们都曾为了IE8兼容舍弃了很多交互上的体验，但是何不做个区分，让使用现代浏览器的用户感受到我们炫酷的产品体验呢。</p>
-</blockquote>
-<h3 id="接下来是实践！"><a href="#接下来是实践！" class="headerlink" title="接下来是实践！"></a>接下来是实践！</h3><hr>
-<p>首先使用<a href="http://www.w3school.com.cn/html5/html_5_webworkers.asp" target="_blank" rel="external">Web Worker</a>判断是否为支持HTML5的浏览器<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">if (typeof(Worker) !== &quot;undefined&quot;) &#123;</div><div class="line">    // 浏览器支持HTML5</div><div class="line">&#125; else &#123;</div><div class="line">    // 浏览器不支持HTML5</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>页面中放置一个拖拽区域area，preview用于预览图片信息。（目前只写了个图片上传）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;div id=&quot;area&quot;&gt;将图片拖拽到此区域&lt;/div&gt; </div><div class="line">&lt;div id=&quot;preview&quot;&gt;&lt;/div&gt;</div></pre></td></tr></table></figure></p>
-<p>阻止浏览器默认的拖拽操作：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">$(document).on(&#123;</div><div class="line">    dragleave:function(e)&#123;		//拖离</div><div class="line">        e.preventDefault();</div><div class="line">    &#125;,</div><div class="line">    drop:function(e)&#123;			//拖后放</div><div class="line">    	e.preventDefault();</div><div class="line">    &#125;,</div><div class="line">    dragenter:function(e)&#123;		//拖进</div><div class="line">    	e.preventDefault();</div><div class="line">    &#125;,</div><div class="line">    dragover:function(e)&#123;		//拖来拖去</div><div class="line">        e.preventDefault();</div><div class="line">    &#125;</div><div class="line">	&#125;);</div></pre></td></tr></table></figure></p>
-<p>上传实现主体代码，主要用到<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/FileList" target="_blank" rel="external">文件API</a>中的一个FileList接口，通过e.dataTransfer.files拖拽事件传递的文件信息，获取本地文件列表信息，通过length属性获取文件数量。如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line">var box = document.getElementById(&apos;area&apos;); //拖拽区域</div><div class="line">box.addEventListener(&quot;drop&quot;,</div><div class="line">function(e) &#123;</div><div class="line">    e.preventDefault(); //取消默认浏览器拖拽效果</div><div class="line">    var fileList = e.dataTransfer.files; //获取文件对象</div><div class="line">    //检测是否是拖拽文件到页面的操作</div><div class="line">    if (fileList.length == 0) &#123;</div><div class="line">        return false;</div><div class="line">    &#125;</div><div class="line">    //检测文件是不是图片</div><div class="line">    if (fileList[0].type.indexOf(&apos;image&apos;) === -1) &#123;</div><div class="line">        alert(&quot;您拖的不是图片！&quot;);</div><div class="line">        return false;</div><div class="line">    &#125;</div><div class="line">    //拖拉图片到浏览器，可以实现预览功能</div><div class="line">    var img = window.webkitURL.createObjectURL(fileList[0]);</div><div class="line">    var filename = fileList[0].name; //图片名称</div><div class="line">    var filesize = Math.floor((fileList[0].size) / 1024);</div><div class="line">    if (filesize &gt; 500) &#123;</div><div class="line">        alert(&quot;上传大小不能超过500K.&quot;);</div><div class="line">        return false;</div><div class="line">    &#125;</div><div class="line">    //alert(filesize);</div><div class="line">    var str = &quot;![](&quot; + img + &quot;)&lt;p&gt;图片名称：&quot; + filename + &quot;&lt;/p&gt;&lt;p&gt;大小：&quot; + filesize + &quot;KB&lt;/p&gt;&quot;;</div><div class="line">    $(&quot;#preview&quot;).html(str);</div><div class="line"></div><div class="line">    //上传</div><div class="line">    xhr = new XMLHttpRequest();</div><div class="line">    xhr.open(&quot;post&quot;, &quot;upload.php&quot;, true);</div><div class="line">    xhr.setRequestHeader(&quot;X-Requested-With&quot;, &quot;XMLHttpRequest&quot;);</div><div class="line"></div><div class="line">    var fd = new FormData();</div><div class="line">    fd.append(&apos;mypic&apos;, fileList[0]);</div><div class="line"></div><div class="line">    xhr.send(fd);</div><div class="line"></div><div class="line">&#125;,</div><div class="line">false);</div></pre></td></tr></table></figure></p>
-<p>后端PHP接收上传的文件信息(用于测试)，代码如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">&lt;?php</div><div class="line">$mypic = $_FILES[&quot;mypic&quot;];</div><div class="line">if(!empty($mypic))&#123;</div><div class="line">    $picname = $_FILES[&apos;mypic&apos;][&apos;name&apos;];</div><div class="line">    $picsize = $_FILES[&apos;mypic&apos;][&apos;size&apos;];</div><div class="line">    if ($picsize &gt; 512000) &#123;</div><div class="line">        echo &apos;图片大小不能超过500k&apos;;</div><div class="line">        exit;</div><div class="line">    &#125;</div><div class="line">    $type = strstr($picname, &apos;.&apos;);</div><div class="line">    if ($type != &quot;.gif&quot; &amp;&amp; $type != &quot;.jpg&quot;) &#123;</div><div class="line">    	echo &apos;图片格式不对！&apos;;</div><div class="line">        exit;</div><div class="line">    &#125;</div><div class="line">    $pics = &apos;hello&apos; . $type;</div><div class="line">    //上传路径</div><div class="line">    $pic_path = &quot;pics/&quot;. $pics;</div><div class="line">    move_uploaded_file($mypic[&quot;tmp_name&quot;],$pic_path);</div><div class="line">&#125;</div><div class="line">?&gt;</div><div class="line">&lt;meta charset=&quot;utf-8&quot;&gt;</div><div class="line">&lt;form action=&quot;&quot; method=&quot;post&quot; enctype=&quot;multipart/form-data&quot;&gt;</div><div class="line">&lt;input type=&quot;file&quot; name=&quot;mypic&quot;&gt;</div><div class="line">&lt;input type=&quot;submit&quot; value=&quot;上传&quot;&gt;</div><div class="line">&lt;/form&gt;</div></pre></td></tr></table></figure></p>
-<blockquote>
-<p>具体文件上传方式待定，本文用于前端方法的实现说明，有利于现代浏览器用户的交互体验。</p>
-</blockquote>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
 
 
           </div>
@@ -1730,7 +1787,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-count">12</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1785,7 +1842,7 @@
         <div class="copyright" >
   
   &copy; 
-  <span itemprop="copyrightYear">2018</span>
+  <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

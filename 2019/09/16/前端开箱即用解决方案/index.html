@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="技术分享," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="特性 最佳实践：良好的工程实践助你持续产出高质量代码 Mock 数据：实用的本地数据调试方案（支持mockjs随机数据语法） UI 测试：自动化测试保障前端产品质量（jest + puppeteer） 代码规范校验：收敛lint规则配置到vbuilder统一管理，全站统一校验规则eslint / stylelint  模板12345678910111213141516171819202122232">
+<meta name="keywords" content="技术分享">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端技术分享讲稿（注重细节克服瓶颈）">
+<meta property="og:url" content="http://yoursite.com/2019/09/16/前端开箱即用解决方案/index.html">
+<meta property="og:site_name" content="郑杭杰的小站">
+<meta property="og:description" content="特性 最佳实践：良好的工程实践助你持续产出高质量代码 Mock 数据：实用的本地数据调试方案（支持mockjs随机数据语法） UI 测试：自动化测试保障前端产品质量（jest + puppeteer） 代码规范校验：收敛lint规则配置到vbuilder统一管理，全站统一校验规则eslint / stylelint  模板12345678910111213141516171819202122232">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-11-28T07:37:56.772Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="前端技术分享讲稿（注重细节克服瓶颈）">
+<meta name="twitter:description" content="特性 最佳实践：良好的工程实践助你持续产出高质量代码 Mock 数据：实用的本地数据调试方案（支持mockjs随机数据语法） UI 测试：自动化测试保障前端产品质量（jest + puppeteer） 代码规范校验：收敛lint规则配置到vbuilder统一管理，全站统一校验规则eslint / stylelint  模板12345678910111213141516171819202122232">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: false,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/09/16/前端开箱即用解决方案/"/>
+
+
+
+
+
+  <title>前端技术分享讲稿（注重细节克服瓶颈） | 郑杭杰的小站</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">郑杭杰的小站</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">郑杭杰的小站</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/16/前端开箱即用解决方案/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhenghangjie">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="郑杭杰的小站">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">前端技术分享讲稿（注重细节克服瓶颈）</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-16T23:08:11+08:00">
+                2019-09-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h2><ul>
+<li><strong>最佳实践</strong>：良好的工程实践助你持续产出高质量代码</li>
+<li><strong>Mock 数据</strong>：实用的本地数据调试方案（支持mockjs随机数据语法）</li>
+<li><strong>UI 测试</strong>：自动化测试保障前端产品质量（jest + puppeteer）</li>
+<li><strong>代码规范校验</strong>：收敛lint规则配置到vbuilder统一管理，全站统一校验规则<a href="https://gitlab.vdian.net/fe-workflow/fabric/blob/master/eslint.js" target="_blank" rel="external">eslint</a> / <a href="https://gitlab.vdian.net/fe-workflow/fabric/blob/master/stylelint.js" target="_blank" rel="external">stylelint</a></li>
+</ul>
+<h2 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h2><figure class="highlight markdown"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line"><span class="bullet">- </span>pages/ （入口，必须命名为 pages）</div><div class="line">  - index/ 首页（页面名称，可修改）</div><div class="line">  - index.html</div><div class="line">  - index.js（入口文件，且必须命名为 index.js）</div><div class="line">  - index.less</div><div class="line">  - router.js（路由配置文件）</div><div class="line"><span class="code">      - pages/route/ 路由</span></div><div class="line"><span class="code">      - index.vue (路由入口)</span></div><div class="line"><span class="code">      - index.less (页面样式)</span></div><div class="line"></div><div class="line"><span class="bullet">- </span>components/ (组件文件夹）</div><div class="line">  - common/ (基础组件)</div><div class="line">  - route/ (业务组件)</div><div class="line">  - index.js (组件注册入口)</div><div class="line">  ...</div><div class="line"></div><div class="line"><span class="bullet">- </span>common/</div><div class="line"><span class="code">    - config/ (静态配置)</span></div><div class="line"><span class="code">      - index.js (通用变量配置)</span></div><div class="line"><span class="code">      - index.less (less 变量配置)</span></div><div class="line"><span class="code">	- helper/ (组件级别方法 公用 filter 等)</span></div><div class="line"><span class="code">		- index.js</span></div><div class="line"><span class="code">	- icon/ (图标管理)</span></div><div class="line"><span class="code">		- index.less</span></div><div class="line"><span class="code">    - reset/</span></div><div class="line"><span class="code">		- index.less (覆盖全局样式)</span></div><div class="line"><span class="code">    - util/ (项目级别工具库)</span></div><div class="line"><span class="code">    	- index.js</span></div><div class="line"><span class="code">    	- index.less (样式工具函数)</span></div><div class="line"><span class="code">    	</span></div><div class="line"><span class="bullet">- </span>assets/ (图片存放)</div><div class="line"><span class="code">	- icon/ (图标)</span></div><div class="line"><span class="code">	- images/ </span></div><div class="line"></div><div class="line"><span class="bullet">- </span>plugins/ (存放第三方或者自定义插件)</div></pre></td></tr></table></figure>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/* package.json */</span></div><div class="line"></div><div class="line"><span class="string">"husky"</span>: &#123;</div><div class="line">    <span class="string">"hooks"</span>: &#123;</div><div class="line">      <span class="string">"pre-commit"</span>: <span class="string">"lint-staged"</span></div><div class="line">    &#125;</div><div class="line">&#125;,</div><div class="line"><span class="string">"lint-staged"</span>: &#123;</div><div class="line">    <span class="string">"**/*.&#123;html,js,vue,less,css,json&#125;"</span>: [</div><div class="line">      <span class="string">"prettier --config .prettierrc --write '**/*.&#123;html,js,less,css,json&#125;'"</span>,</div><div class="line">      <span class="string">"v lint"</span>,</div><div class="line">      <span class="string">"git add"</span></div><div class="line">    ]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>.prettierrc为项目中自定义样式配置，v lint执行时自动读取vbuilder中统一lint规则校验代码</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/* Mock */</span></div><div class="line">&#123;</div><div class="line">  <span class="string">"status"</span>: &#123;</div><div class="line">    <span class="string">"code"</span>: <span class="number">0</span>,</div><div class="line">    <span class="string">"message"</span>: <span class="string">"OK"</span>,</div><div class="line">    <span class="string">"description"</span>: <span class="string">""</span></div><div class="line">  &#125;,</div><div class="line">  <span class="string">"result"</span>: &#123;</div><div class="line">    <span class="string">"address"</span>: <span class="string">"@province - @county"</span>,</div><div class="line">    <span class="string">"cparagraph"</span>: <span class="string">"@cparagraph"</span>,</div><div class="line">    <span class="string">"boolean"</span>: <span class="string">"@boolean"</span>,</div><div class="line">    <span class="string">"integer"</span>: <span class="string">"@integer(0, 100)"</span>,</div><div class="line">    <span class="string">"float"</span>: <span class="string">"@float(0, 100, 3)"</span>,</div><div class="line">    <span class="string">"sentence"</span>: <span class="string">"@sentence"</span></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>v mock新增功能，可解析mockjs语法生成随机内容（应用于各种边界条件测试），访问对应mock资源后会在相同目录下生成*-result.json作为访问结果文件（用于追溯上一次请求的数据结果）</p>
+</blockquote>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">	<span class="attr">"proxy"</span>: <span class="literal">true</span>,</div><div class="line">	<span class="attr">"host"</span>: <span class="string">"thor.pre.weidian.com"</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">v mock-add /poseidon/exhibit.spaceJson/1.0</div></pre></td></tr></table></figure>
+<blockquote>
+<p>Mock Server读取项目根目录配置（.mockrc） 增加是否代理到其他环境选项（proxy开启后 server读取项目中mock文件，读取不到的情况下转发对应host接口结果返回）<br>新增mock-add [path] 命令 快速创建mock文件</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/* .gitignore */</span></div><div class="line">mock<span class="comment">/*-result.json</span></div><div class="line"><span class="comment">lint-result/</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>gitignore新增如上配置，lint-result为v lint校验后生成的报表文件，*-result.json为模拟数据结果文件</p>
+</blockquote>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">自动化测试 jest+puppeteer</div><div class="line"></div><div class="line"><span class="bullet">- </span>网页截图</div><div class="line"><span class="bullet">- </span>自动化表单提交，UI测试，键盘输入等</div><div class="line"><span class="bullet">- </span>创建一个最新的自动化测试环境，兼容性</div><div class="line"><span class="bullet">- </span>捕获网站的时间线，帮助诊断性能问题</div></pre></td></tr></table></figure>
+<h2 id="如何在项目中应用"><a href="#如何在项目中应用" class="headerlink" title="如何在项目中应用"></a>如何在项目中应用</h2><ul>
+<li>新项目直接v init 初始化项目即可使用</li>
+<li>老项目可应用新升级后的 v mock / v lint 命令</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div><div class="line">## vscode插件相关（建议安装）</div><div class="line"></div><div class="line">- Code Spell Checker</div><div class="line">- Eslint</div><div class="line">- Prettier</div><div class="line">- stylelint</div><div class="line">- Vue 2 Snippets</div><div class="line">- vetur</div><div class="line"></div><div class="line">​```json</div><div class="line">/* vscode相关配置 */</div><div class="line">&quot;eslint.options&quot;: &#123;</div><div class="line">  &quot;extensions&quot;: [&quot;.js&quot;, &quot;.vue&quot;]</div><div class="line">&#125;,</div><div class="line">&quot;eslint.validate&quot;: [</div><div class="line">  &quot;javascript&quot;,</div><div class="line">  &quot;javascriptreact&quot;,</div><div class="line">  &quot;html&quot;,</div><div class="line">  &quot;vue&quot;,</div><div class="line">  &#123;</div><div class="line">    &quot;language&quot;: &quot;html&quot;,</div><div class="line">    &quot;autoFix&quot;: true</div><div class="line">  &#125;,</div><div class="line">  &#123;</div><div class="line">    &quot;language&quot;: &quot;vue&quot;,</div><div class="line">    &quot;autoFix&quot;: true</div><div class="line">  &#125;</div><div class="line">],</div><div class="line">&quot;vetur.format.defaultFormatter.html&quot;: &quot;prettier&quot;,</div><div class="line">&quot;vetur.format.defaultFormatter.css&quot;: &quot;prettier&quot;,</div><div class="line">&quot;vetur.format.defaultFormatter.scss&quot;: &quot;prettier&quot;,</div><div class="line">&quot;vetur.format.defaultFormatter.less&quot;: &quot;prettier&quot;,</div><div class="line">&quot;vetur.format.defaultFormatter.js&quot;: &quot;prettier&quot;,</div><div class="line">&quot;vetur.format.defaultFormatter.ts&quot;: &quot;prettier&quot;,</div><div class="line">&quot;[less]&quot;: &#123;</div><div class="line">  &quot;editor.defaultFormatter&quot;: &quot;esbenp.prettier-vscode&quot;</div><div class="line">&#125;</div><div class="line">&quot;cSpell.userWords&quot;: [</div><div class="line">  &quot;mockjs&quot;,</div><div class="line">  &quot;preconnect&quot;,</div><div class="line">  &quot;prettierrc&quot;,</div><div class="line">  &quot;spmb&quot;,</div><div class="line">  &quot;stylelint&quot;,</div><div class="line">  &quot;vbuilder&quot;,</div><div class="line">  &quot;vdian&quot;,</div><div class="line">  &quot;weidian&quot;,</div><div class="line">],</div><div class="line">&quot;[css]&quot;: &#123;</div><div class="line"></div><div class="line">&quot;editor.defaultFormatter&quot;: &quot;esbenp.prettier-vscode&quot;</div><div class="line"></div><div class="line">&#125;,</div><div class="line"></div><div class="line">&quot;[javascript]&quot;: &#123;</div><div class="line"></div><div class="line">&quot;editor.defaultFormatter&quot;: &quot;esbenp.prettier-vscode&quot;</div><div class="line"></div><div class="line">&#125;,</div><div class="line"></div><div class="line">&quot;[typescript]&quot;: &#123;</div><div class="line"></div><div class="line">&quot;editor.defaultFormatter&quot;: &quot;esbenp.prettier-vscode&quot;</div><div class="line"></div><div class="line">&#125;,</div><div class="line"></div><div class="line">&quot;[json]&quot;: &#123;</div><div class="line"></div><div class="line">&quot;editor.defaultFormatter&quot;: &quot;esbenp.prettier-vscode&quot;</div><div class="line"></div><div class="line">&#125;,</div><div class="line"></div><div class="line">&quot;[jsonc]&quot;: &#123;</div><div class="line"></div><div class="line">&quot;editor.defaultFormatter&quot;: &quot;esbenp.prettier-vscode&quot;</div><div class="line"></div><div class="line">&#125;,</div><div class="line"></div><div class="line">&quot;[less]&quot;: &#123;</div><div class="line"></div><div class="line">&quot;editor.defaultFormatter&quot;: &quot;esbenp.prettier-vscode&quot;</div><div class="line"></div><div class="line">&#125;,</div><div class="line"></div><div class="line">&quot;[vue]&quot;: &#123;</div><div class="line"></div><div class="line">&quot;editor.defaultFormatter&quot;: &quot;octref.vetur&quot;</div><div class="line"></div><div class="line">&#125;,</div><div class="line"></div><div class="line">&quot;javascript.updateImportsOnFileMove.enabled&quot;: &quot;always&quot;,</div><div class="line"></div><div class="line">&quot;[html]&quot;: &#123;</div><div class="line"></div><div class="line">&quot;editor.defaultFormatter&quot;: &quot;esbenp.prettier-vscode&quot;</div><div class="line"></div><div class="line">&#125;,</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/技术分享/" rel="tag"># 技术分享</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/07/03/搭建服务生成的组件如何后期维护迭代/" rel="next" title="前端技术分享讲稿（注重细节克服瓶颈）">
+                <i class="fa fa-chevron-left"></i> 前端技术分享讲稿（注重细节克服瓶颈）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="zhenghangjie" />
+          <p class="site-author-name" itemprop="name">zhenghangjie</p>
+           
+              <p class="site-description motion-element" itemprop="description">前端技术分享</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#特性"><span class="nav-number">1.</span> <span class="nav-text">特性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模板"><span class="nav-number">2.</span> <span class="nav-text">模板</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用"><span class="nav-number">3.</span> <span class="nav-text">使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何在项目中应用"><span class="nav-number">4.</span> <span class="nav-text">如何在项目中应用</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zhenghangjie</span>
+</div>
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
